@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyrd Life Drawing — Montréal</title>
+    <meta name="description" content="Weird and wonderful themed life drawing events in Montréal. Immersive atmospheres, cinematic lighting, and fantastical costumes.">
+    <meta property="og:title" content="Wyrd Life Drawing — Montréal">
+    <meta property="og:description" content="Weird and wonderful themed life drawing events in Montréal.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="fr_CA">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.jpg" alt="Wyrd" class="nav-logo-img">
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
+            <li><a href="#events" data-en="Events" data-fr="Événements">Events</a></li>
+            <li><a href="#team" data-en="Team" data-fr="Équipe">Team</a></li>
+            <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+        </ul>
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">FR</button>
+    </nav>
+
+    <!-- Hero — Photo-led with next event or newsletter -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="images/hero-event.jpg" alt="" class="hero-bg-img">
+            <div class="hero-bg-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <img src="assets/logo.jpg" alt="Wyrd Life Drawing" class="hero-logo-img">
+            <h1 class="hero-title">Wyrd Life Drawing</h1>
+            <p class="hero-subtitle" data-en="Weird and wonderful life drawing events" data-fr="Des événements de dessin de modèle vivant étranges et merveilleux">Weird and wonderful life drawing events</p>
+            <p class="hero-location">Montréal, QC</p>
+
+            <!-- Newsletter signup (shown when no upcoming event) -->
+            <div class="hero-newsletter">
+                <p class="newsletter-label" data-en="Be the first to know about our next event" data-fr="Soyez les premiers informés de notre prochain événement">Be the first to know about our next event</p>
+                <form class="newsletter-form" action="#" method="post">
+                    <input type="email" placeholder="your@email.com" class="newsletter-input" required>
+                    <button type="submit" class="btn btn-primary newsletter-btn" data-en="Notify Me" data-fr="M'avertir">Notify Me</button>
+                </form>
+            </div>
+
+            <!-- Upcoming event CTA (hidden by default — uncomment and fill when you have a next event)
+            <div class="hero-event">
+                <h2 class="hero-event-name">Theme Name Here</h2>
+                <p class="hero-event-details">Date &middot; Venue</p>
+                <a href="TICKET_LINK" class="btn btn-primary" target="_blank">Get Tickets — $15 Early Bird</a>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-en="About" data-fr="À propos">About</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p data-en="Wyrd Life Drawing transforms the traditional life drawing session into an immersive, otherworldly experience. Each event is a unique themed night — from medieval fantasies to enchanted forest spirits — complete with cinematic lighting, fantastical costumes, and atmospheric music." data-fr="Wyrd Life Drawing transforme la séance traditionnelle de dessin de modèle vivant en une expérience immersive et surnaturelle. Chaque événement est une soirée thématique unique — des fantaisies médiévales aux esprits de la forêt enchantée — avec un éclairage cinématographique, des costumes fantastiques et une musique atmosphérique.">Wyrd Life Drawing transforms the traditional life drawing session into an immersive, otherworldly experience. Each event is a unique themed night — from medieval fantasies to enchanted forest spirits — complete with cinematic lighting, fantastical costumes, and atmospheric music.</p>
+                    <p data-en="We alternate creative direction between our two founders, bringing fresh perspectives and new models to every session. Our models arrive with their own personas and elaborate costumes, making each event a truly one-of-a-kind artistic experience." data-fr="Nous alternons la direction créative entre nos deux fondateurs, apportant des perspectives nouvelles et de nouveaux modèles à chaque séance. Nos modèles arrivent avec leurs propres personnages et costumes élaborés, faisant de chaque événement une expérience artistique véritablement unique.">We alternate creative direction between our two founders, bringing fresh perspectives and new models to every session. Our models arrive with their own personas and elaborate costumes, making each event a truly one-of-a-kind artistic experience.</p>
+                    <p data-en="Whether you're a seasoned artist or picking up a pencil for the first time, Wyrd Life Drawing welcomes all skill levels. Come draw, be inspired, and lose yourself in the atmosphere." data-fr="Que vous soyez un artiste chevronné ou que vous preniez un crayon pour la première fois, Wyrd Life Drawing accueille tous les niveaux. Venez dessiner, vous inspirer et vous perdre dans l'atmosphère.">Whether you're a seasoned artist or picking up a pencil for the first time, Wyrd Life Drawing welcomes all skill levels. Come draw, be inspired, and lose yourself in the atmosphere.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <span class="feature-icon">&#9728;</span>
+                        <h3 data-en="Cinematic Lighting" data-fr="Éclairage cinématographique">Cinematic Lighting</h3>
+                        <p data-en="Dramatic, moody lighting that transforms the space" data-fr="Un éclairage dramatique qui transforme l'espace">Dramatic, moody lighting that transforms the space</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">&#9733;</span>
+                        <h3 data-en="Themed Nights" data-fr="Soirées thématiques">Themed Nights</h3>
+                        <p data-en="Every event has a unique fantasy or mythological theme" data-fr="Chaque événement a un thème fantastique ou mythologique unique">Every event has a unique fantasy or mythological theme</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">&#9835;</span>
+                        <h3 data-en="Enchanting Music" data-fr="Musique enchantée">Enchanting Music</h3>
+                        <p data-en="Curated soundscapes to match every theme" data-fr="Des ambiances sonores pour chaque thème">Curated soundscapes to match every theme</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">&#9998;</span>
+                        <h3 data-en="All Levels Welcome" data-fr="Tous les niveaux">All Levels Welcome</h3>
+                        <p data-en="From first-timers to experienced artists" data-fr="Des débutants aux artistes expérimentés">From first-timers to experienced artists</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events -->
+    <section class="section events" id="events">
+        <div class="container">
+            <h2 class="section-title" data-en="Past Events" data-fr="Événements passés">Past Events</h2>
+            <div class="events-grid">
+                <!-- Alice in Wonderland hidden until photos are ready -->
+                <a href="event-magical-girl.html" class="event-card">
+                    <div class="event-card-image"><img src="images/magical-girl-3.jpg" alt="Magical Girl Night" loading="lazy"></div>
+                    <div class="event-card-body">
+                        <h3 class="event-name" data-en="Magical Girl Night" data-fr="Soirée Magical Girl">Magical Girl Night</h3>
+                        <p class="event-meta" data-en="February 2026 &middot; Cyber Love Garden" data-fr="Février 2026 &middot; Cyber Love Garden">February 2026 &middot; Cyber Love Garden</p>
+                    </div>
+                </a>
+                <a href="event-forest-nymph.html" class="event-card">
+                    <div class="event-card-image"><img src="images/forest-nymph-1.jpg" alt="Forest Nymph" loading="lazy"></div>
+                    <div class="event-card-body">
+                        <h3 class="event-name" data-en="Forest Nymph / Fée des Bois" data-fr="Fée des Bois">Forest Nymph / Fée des Bois</h3>
+                        <p class="event-meta" data-en="December 2025 &middot; Cyber Love Garden" data-fr="Décembre 2025 &middot; Cyber Love Garden">December 2025 &middot; Cyber Love Garden</p>
+                    </div>
+                </a>
+                <a href="event-medieval.html" class="event-card">
+                    <div class="event-card-image"><img src="images/medieval-1.jpg" alt="Medieval Life Drawing" loading="lazy"></div>
+                    <div class="event-card-body">
+                        <h3 class="event-name" data-en="Medieval Life Drawing" data-fr="Dessin médiéval">Medieval Life Drawing</h3>
+                        <p class="event-meta" data-en="October 2025 &middot; Cyber Love Garden" data-fr="Octobre 2025 &middot; Cyber Love Garden">October 2025 &middot; Cyber Love Garden</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section team" id="team">
+        <div class="container">
+            <h2 class="section-title" data-en="The Team" data-fr="L'équipe">The Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo" style="background: linear-gradient(135deg, #BFFF00, #7a9900);"></div>
+                    <h3>Sam</h3>
+                    <p class="team-role" data-en="Lighting &middot; Photography &middot; Creative Direction" data-fr="Éclairage &middot; Photographie &middot; Direction créative">Lighting &middot; Photography &middot; Creative Direction</p>
+                    <p class="team-bio" data-en="Sam designs the dramatic lighting that defines the Wyrd atmosphere, captures the magic through photography, and sources unique models from his photography practice — each bringing their own personas and costumes." data-fr="Sam conçoit l'éclairage dramatique qui définit l'atmosphère Wyrd, capture la magie par la photographie et trouve des modèles uniques dans sa pratique photographique — chacun apportant ses propres personnages et costumes.">Sam designs the dramatic lighting that defines the Wyrd atmosphere, captures the magic through photography, and sources unique models from his photography practice — each bringing their own personas and costumes.</p>
+                    <a href="https://www.instagram.com/sam___ab/" class="team-social" target="_blank" rel="noopener">@sam___ab</a>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo" style="background: linear-gradient(135deg, #BFFF00, #7a9900);"></div>
+                    <h3>Esmee</h3>
+                    <p class="team-role" data-en="Modeling &middot; Creative Direction &middot; Artistic Vision" data-fr="Modèle &middot; Direction créative &middot; Vision artistique">Modeling &middot; Creative Direction &middot; Artistic Vision</p>
+                    <p class="team-bio" data-en="Esmee brings the fantasy to life as both model and creative director. Her artistic vision shapes the themes, costumes, and the enchanting atmosphere that makes each event unforgettable." data-fr="Esmee donne vie au fantastique en tant que modèle et directrice créative. Sa vision artistique façonne les thèmes, les costumes et l'atmosphère enchantée qui rend chaque événement inoubliable.">Esmee brings the fantasy to life as both model and creative director. Her artistic vision shapes the themes, costumes, and the enchanting atmosphere that makes each event unforgettable.</p>
+                    <a href="https://www.instagram.com/esmee.simone/" class="team-social" target="_blank" rel="noopener">@esmee.simone</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-en="Get in Touch" data-fr="Contactez-nous">Get in Touch</h2>
+            <p class="contact-text" data-en="Want to attend an event, collaborate, or host us at your venue? Reach out!" data-fr="Vous voulez assister à un événement, collaborer ou nous accueillir dans votre lieu? Contactez-nous!">Want to attend an event, collaborate, or host us at your venue? Reach out!</p>
+            <div class="contact-links">
+                <a href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.738-.9 10.126-5.864 10.126-11.854z"/></svg>
+                    <span>Facebook</span>
+                </a>
+                <a href="mailto:wyrdlifedrawing@gmail.com" class="contact-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <span data-en="Email" data-fr="Courriel">Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">WYRD</span>
+                    <p>Montréal, QC</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://linktr.ee/WyrdLifeDrawing" target="_blank" rel="noopener">Linktree</a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2025&ndash;2026 Wyrd Life Drawing</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

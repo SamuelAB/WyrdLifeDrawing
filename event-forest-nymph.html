@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Nymph / F&eacute;e des Bois — Wyrd Life Drawing</title>
+    <meta name="description" content="Forest Nymph life drawing night at Cyber Love Garden, December 7, 2025. Photos and details from this Wyrd Life Drawing event.">
+    <meta property="og:title" content="Forest Nymph / Fée des Bois — Wyrd Life Drawing">
+    <meta property="og:description" content="Forest Nymph life drawing night at Cyber Love Garden, December 2025.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="fr_CA">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .event-hero {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 400px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .event-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        .event-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.2) 100%);
+        }
+        .event-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem 1rem 3rem;
+            max-width: 800px;
+        }
+        .event-hero-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            color: #BFFF00;
+            margin-bottom: 0.5rem;
+        }
+        .event-hero-meta {
+            font-family: 'Inter', sans-serif;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .event-back {
+            display: inline-block;
+            margin: 2rem auto;
+            padding: 0.5rem 1rem;
+            color: #BFFF00;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .event-back:hover { opacity: 0.7; }
+        .event-back::before { content: "\2190 "; }
+        .event-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 3rem;
+        }
+        .event-section-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.5rem;
+            color: #BFFF00;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #1a1a1a;
+        }
+        .gallery-item.landscape {
+            aspect-ratio: 3 / 2;
+            grid-column: span 2;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.03); }
+        @media (max-width: 900px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item.landscape { grid-column: span 2; }
+        }
+        @media (max-width: 550px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item.landscape { grid-column: span 1; }
+            .event-hero { height: 50vh; min-height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.jpg" alt="Wyrd" class="nav-logo-img">
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html#about" data-en="About" data-fr="&Agrave; propos">About</a></li>
+            <li><a href="index.html#events" data-en="Events" data-fr="&Eacute;v&eacute;nements">Events</a></li>
+            <li><a href="index.html#team" data-en="Team" data-fr="&Eacute;quipe">Team</a></li>
+            <li><a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+        </ul>
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">FR</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="event-hero">
+        <img src="images/forest-nymph-1.jpg" alt="Forest Nymph / Fée des Bois" class="event-hero-img">
+        <div class="event-hero-overlay"></div>
+        <div class="event-hero-content">
+            <h1 class="event-hero-title" data-en="Forest Nymph / F&eacute;e des Bois" data-fr="F&eacute;e des Bois">Forest Nymph / F&eacute;e des Bois</h1>
+            <p class="event-hero-meta">
+                <span data-en="December 7, 2025" data-fr="7 d&eacute;cembre 2025">December 7, 2025</span><br>
+                <span>6:30 PM &ndash; 9:30 PM</span><br>
+                <span>Cyber Love Garden</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Back link -->
+    <div class="event-section" style="padding-bottom: 0;">
+        <a href="index.html#events" class="event-back" data-en="Back to all events" data-fr="Retour aux &eacute;v&eacute;nements">Back to all events</a>
+    </div>
+
+    <!-- Poster -->
+    <section class="event-section">
+        <h2 class="event-section-title" data-en="The Poster" data-fr="L'affiche">The Poster</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/forest-poster-1.jpg" alt="Forest Nymph event poster" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-poster-2.jpg" alt="Forest Nymph event poster" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-poster-3.jpg" alt="Forest Nymph event poster" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- Event — Isolated Model -->
+    <section class="event-section">
+        <h2 class="event-section-title" data-en="The Event" data-fr="L'&eacute;v&eacute;nement">The Event</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/forest-ev-0010.jpg" alt="Forest Nymph event — model posing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0011.jpg" alt="Forest Nymph event — model posing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0012.jpg" alt="Forest Nymph event — model posing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0013.jpg" alt="Forest Nymph event — model posing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0014.jpg" alt="Forest Nymph event — model posing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0015.jpg" alt="Forest Nymph event — model posing" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- Event — Crowd & Atmosphere -->
+    <section class="event-section">
+        <h2 class="event-section-title" data-en="The Atmosphere" data-fr="L'ambiance">The Atmosphere</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/forest-ev-0001.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0002.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0003.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0004.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0005.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0006.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0007.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0008.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/forest-ev-0009.jpg" alt="Forest Nymph event — crowd drawing" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">WYRD</span>
+                    <p>Montr&eacute;al, QC</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://linktr.ee/WyrdLifeDrawing" target="_blank" rel="noopener">Linktree</a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2025&ndash;2026 Wyrd Life Drawing</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

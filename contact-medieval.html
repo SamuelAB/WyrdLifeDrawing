@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Sheet — Medieval Event (5/5 Photos)</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #111; color: #eee; font-family: 'Segoe UI', sans-serif; padding: 20px; }
+h1 { color: #BFFF00; margin-bottom: 10px; font-size: 1.6rem; }
+.info { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 16px; }
+.card { background: #1a1a1a; border-radius: 8px; overflow: hidden; border: 2px solid transparent; transition: border-color 0.2s; }
+.card:hover { border-color: #BFFF00; }
+.card img { width: 100%; height: auto; object-fit: contain; display: block; cursor: pointer; }
+.card .label { padding: 10px 14px; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
+.card .filename { color: #BFFF00; font-weight: 600; }
+.card .index { color: #666; }
+</style>
+</head>
+<body>
+<h1>Medieval Event — 5/5 Photos</h1>
+<p class="info">Source: 001-Esmee Medieval/Picture/001 Event/5/ — 15 photos. Click to expand/collapse.</p>
+<div class="grid" id="grid"></div>
+<script>
+const basePath = '/001-Esmee Medieval/Picture/001 Event/5/';
+const photos = [];
+for (let i = 1; i <= 15; i++) {
+  const num = String(i).padStart(4, '0');
+  photos.push({ file: `Wyrd001-${num}.jpg`, label: `Wyrd001-${num}` });
+}
+const grid = document.getElementById('grid');
+photos.forEach((p, i) => {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <img src="${basePath}${p.file}" alt="${p.label}" loading="lazy">
+    <div class="label">
+      <span class="filename">${p.label}</span>
+      <span class="index">#${i + 1} / ${photos.length}</span>
+    </div>`;
+  card.querySelector('img').addEventListener('click', function() {
+    this.classList.toggle('expanded');
+  });
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>
