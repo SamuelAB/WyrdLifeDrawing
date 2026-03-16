@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: #1a1510;
+            background: #0a0a08;
             color: #e8d5b5;
             font-family: 'Georgia', serif;
             overflow: hidden;
@@ -93,8 +93,8 @@
         }
 
         .pose-image {
-            max-width: 100%;
-            max-height: 100vh;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
         }
 
@@ -114,33 +114,38 @@
             font-weight: bold;
         }
 
-        /* TIMER OVERLAY */
+        /* TIMER OVERLAY - bottom right corner, always visible over image */
         .timer-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            bottom: 20px;
+            right: 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 20px 24px;
-            background: linear-gradient(to bottom, rgba(10, 10, 8, 0.85) 0%, rgba(10, 10, 8, 0) 100%);
+            flex-direction: column;
+            align-items: flex-end;
             z-index: 10;
             pointer-events: none;
         }
 
         .timer-display {
-            font-size: clamp(3rem, 10vw, 6rem);
+            font-size: clamp(4rem, 12vw, 8rem);
             font-weight: bold;
             color: #d4a84b;
-            text-shadow: 0 0 30px rgba(212, 168, 75, 0.5), 0 2px 8px rgba(0,0,0,0.8);
+            text-shadow:
+                0 0 40px rgba(0, 0, 0, 0.9),
+                0 0 20px rgba(0, 0, 0, 0.9),
+                0 4px 12px rgba(0, 0, 0, 0.9),
+                0 0 60px rgba(212, 168, 75, 0.3);
             font-variant-numeric: tabular-nums;
             line-height: 1;
         }
 
         .timer-display.warning {
             color: #e87040;
-            text-shadow: 0 0 30px rgba(232, 112, 64, 0.5);
+            text-shadow:
+                0 0 40px rgba(0, 0, 0, 0.9),
+                0 0 20px rgba(0, 0, 0, 0.9),
+                0 4px 12px rgba(0, 0, 0, 0.9),
+                0 0 60px rgba(232, 112, 64, 0.4);
             animation: pulse 1s ease-in-out infinite;
         }
 
@@ -157,11 +162,13 @@
         .pose-info .pose-label {
             font-size: clamp(1rem, 3vw, 1.6rem);
             color: #a08660;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
         }
 
         .pose-info .pose-duration {
             font-size: clamp(0.8rem, 2vw, 1.1rem);
             color: #7a6a50;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
         }
 
         /* PROGRESS BAR */
@@ -185,10 +192,10 @@
             background: #e87040;
         }
 
-        /* CONTROLS */
+        /* CONTROLS - top center, hidden until tap */
         .controls {
             position: absolute;
-            bottom: 20px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -281,7 +288,7 @@
             position: absolute;
             inset: 0;
             background: radial-gradient(ellipse at center, #2a2018 0%, #1a1510 70%);
-            z-index: 20;
+            z-index: 15;
             align-items: center;
             justify-content: center;
             flex-direction: column;
@@ -365,34 +372,33 @@
     const EVENT_NAME = "Angels";
 
     const POSES = [
-        // { image: "images/004angels/pose01.jpg", duration: 300, label: "Pose 1" },
         // duration is in SECONDS (300 = 5 min, 600 = 10 min, 900 = 15 min, 1200 = 20 min, 1800 = 30 min)
         // To add a break, use: { break: true, duration: 600, label: "Break" }
 
         // --- 5 minute warm-ups ---
-        { image: "images/004angels/pose01.jpg", duration: 300, label: "Pose 1 - 5 min" },
-        { image: "images/004angels/pose02.jpg", duration: 300, label: "Pose 2 - 5 min" },
-        { image: "images/004angels/pose03.jpg", duration: 300, label: "Pose 3 - 5 min" },
-        { image: "images/004angels/pose04.jpg", duration: 300, label: "Pose 4 - 5 min" },
+        { image: "../images/004angels/pose01.jpg", duration: 300, label: "Pose 1 - 5 min" },
+        { image: "../images/004angels/pose02.jpg", duration: 300, label: "Pose 2 - 5 min" },
+        { image: "../images/004angels/pose03.jpg", duration: 300, label: "Pose 3 - 5 min" },
+        { image: "../images/004angels/pose04.jpg", duration: 300, label: "Pose 4 - 5 min" },
 
         // --- break ---
-        { break: true, duration: 300, label: "Break" },
+        { break: true, duration: 1800, label: "Break - 30 min" },
 
         // --- 10 minute poses ---
-        { image: "images/004angels/pose05.jpg", duration: 600, label: "Pose 5 - 10 min" },
-        { image: "images/004angels/pose06.jpg", duration: 600, label: "Pose 6 - 10 min" },
-        { image: "images/004angels/pose07.jpg", duration: 600, label: "Pose 7 - 10 min" },
+        { image: "../images/004angels/pose05.jpg", duration: 600, label: "Pose 5 - 10 min" },
+        { image: "../images/004angels/pose06.jpg", duration: 600, label: "Pose 6 - 10 min" },
+        { image: "../images/004angels/pose07.jpg", duration: 600, label: "Pose 7 - 10 min" },
 
         // --- break ---
-        { break: true, duration: 600, label: "Break" },
+        { break: true, duration: 1800, label: "Break - 30 min" },
 
         // --- 15 minute pose ---
-        { image: "images/004angels/pose08.jpg", duration: 900, label: "Pose 8 - 15 min" },
+        { image: "../images/004angels/pose08.jpg", duration: 900, label: "Pose 8 - 15 min" },
 
         // --- longer poses ---
-        { image: "images/004angels/pose09.jpg", duration: 1200, label: "Pose 9 - 20 min" },
-        { image: "images/004angels/pose10.jpg", duration: 1800, label: "Pose 10 - 30 min" },
-        { image: "images/004angels/pose11.jpg", duration: 1800, label: "Pose 11 - 30 min" },
+        { image: "../images/004angels/pose09.jpg", duration: 1200, label: "Pose 9 - 20 min" },
+        { image: "../images/004angels/pose10.jpg", duration: 1800, label: "Pose 10 - 30 min" },
+        { image: "../images/004angels/pose11.jpg", duration: 1800, label: "Pose 11 - 30 min" },
     ];
 
     // Warning threshold: flash red when this many seconds remain
@@ -495,12 +501,13 @@
         $('breakOverlay').classList.remove('active');
 
         if (pose.break) {
-            // Show break screen
+            // Show break screen with controls visible
             $('breakOverlay').classList.add('active');
             $('breakTimer').textContent = formatTime(timeRemaining);
             $('timerDisplay').textContent = formatTime(timeRemaining);
             $('poseLabel').textContent = pose.label;
             $('poseDuration').textContent = formatTime(pose.duration) + ' total';
+            $('controls').classList.add('visible');
         } else {
             // Show pose image
             const container = $('poseContainer');
