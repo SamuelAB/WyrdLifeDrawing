@@ -153,20 +153,9 @@
     <!-- Posters -->
     <section class="event-section">
         <h2 class="event-section-title" data-en="The Poster" data-fr="L'affiche">The Poster</h2>
-        <div class="gallery-grid" style="max-width: 500px; margin: 0 auto;">
+        <div class="gallery-grid">
             <div class="gallery-item"><img src="images/magical-girl-1.jpg" alt="Magical Girl poster" loading="lazy"></div>
             <div class="gallery-item"><img src="images/magical-girl-2.jpg" alt="Magical Girl poster" loading="lazy"></div>
-        </div>
-    </section>
-
-    <!-- Photoshoot -->
-    <section class="event-section">
-        <h2 class="event-section-title" data-en="The Photoshoot" data-fr="La s&eacute;ance photo">The Photoshoot</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/magical-girl-3.jpg" alt="Magical Girl photoshoot" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/magical-ps-1.jpg" alt="Magical Girl photoshoot" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/magical-ps-2.jpg" alt="Magical Girl photoshoot" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/magical-ps-3.jpg" alt="Magical Girl photoshoot" loading="lazy"></div>
         </div>
     </section>
 
@@ -238,5 +227,67 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <!-- Lightbox -->
+    <div id="lightbox" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;cursor:pointer;">
+        <button id="lb-close" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;z-index:2;line-height:1;" aria-label="Close">&times;</button>
+        <button id="lb-prev" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer;z-index:2;padding:8px;" aria-label="Previous">&#8249;</button>
+        <button id="lb-next" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer;z-index:2;padding:8px;" aria-label="Next">&#8250;</button>
+        <img id="lb-img" src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;cursor:default;">
+    </div>
+    <script>
+    (function(){
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lb-img');
+        var imgs = [];
+        var idx = 0;
+        var touchStartX = 0;
+
+        document.querySelectorAll('.gallery-item img').forEach(function(img){
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function(e){
+                e.stopPropagation();
+                var section = img.closest('.event-section');
+                imgs = Array.from(section.querySelectorAll('.gallery-item img'));
+                idx = imgs.indexOf(img);
+                show();
+            });
+        });
+
+        function show(){
+            var src = imgs[idx].src;
+            if (!src || src === window.location.href) {
+                src = imgs[idx].getAttribute('src');
+            }
+            lbImg.src = src;
+            lbImg.alt = imgs[idx].alt || '';
+            lb.style.display = 'flex';
+        }
+        function close(){ lb.style.display = 'none'; lbImg.src = ''; }
+        function prev(){ if(imgs.length){ idx = (idx - 1 + imgs.length) % imgs.length; show(); } }
+        function next(){ if(imgs.length){ idx = (idx + 1) % imgs.length; show(); } }
+
+        document.getElementById('lb-close').addEventListener('click', function(e){ e.stopPropagation(); close(); });
+        document.getElementById('lb-prev').addEventListener('click', function(e){ e.stopPropagation(); prev(); });
+        document.getElementById('lb-next').addEventListener('click', function(e){ e.stopPropagation(); next(); });
+        lb.addEventListener('click', close);
+        lbImg.addEventListener('click', function(e){ e.stopPropagation(); });
+
+        document.addEventListener('keydown', function(e){
+            if(lb.style.display === 'flex'){
+                if(e.key === 'Escape') close();
+                else if(e.key === 'ArrowLeft') prev();
+                else if(e.key === 'ArrowRight') next();
+            }
+        });
+
+        lb.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+        lb.addEventListener('touchend', function(e){
+            var dx = e.changedTouches[0].clientX - touchStartX;
+            if(dx > 50) prev();
+            else if(dx < -50) next();
+        }, {passive:true});
+    })();
+    </script>
 </body>
 </html>
