@@ -35,7 +35,7 @@
         <button class="lang-toggle" id="langToggle" aria-label="Toggle language">FR</button>
     </nav>
 
-    <!-- Hero — Photo-led with next event or newsletter -->
+    <!-- Hero — Upcoming event featured -->
     <section class="hero" id="hero">
         <div class="hero-bg">
             <img src="images/hero-event.jpg" alt="" class="hero-bg-img">
@@ -47,23 +47,28 @@
             <p class="hero-subtitle" data-en="Weird and wonderful life drawing events" data-fr="Des événements de dessin de modèle vivant étranges et merveilleux">Weird and wonderful life drawing events</p>
             <p class="hero-location">Montréal, QC</p>
 
-            <!-- Newsletter signup (shown when no upcoming event) -->
+            <!-- Upcoming event -->
+            <div class="hero-upcoming">
+                <a href="event-post-apocalypse.html" class="hero-poster-link">
+                    <img src="images/postapoc-poster-1.jpg" alt="Post Apocalypse Life Drawing Night" class="hero-poster-img">
+                </a>
+                <h2 class="hero-event-name" data-en="Post Apocalypse" data-fr="Post Apocalypse">Post Apocalypse</h2>
+                <p class="hero-event-details">
+                    <span data-en="April 25, 2026" data-fr="25 avril 2026">April 25, 2026</span> &middot; 1:00 PM &ndash; 3:00 PM &middot; <a href="https://maps.google.com/?q=1345+Rue+de+Bellechasse,+Montr%C3%A9al,+QC" target="_blank" rel="noopener" style="color:var(--text-muted);text-decoration:underline;text-underline-offset:3px;">Parquette</a>
+                </p>
+                <p class="hero-event-collab" data-en="A collaboration with Hannah Silverking" data-fr="Une collaboration avec Hannah Silverking">A collaboration with <a href="https://www.instagram.com/hannahsilverking/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Hannah Silverking</a></p>
+                <a href="https://buytickets.at/wyrdlifedrawing/2159636" target="_blank" rel="noopener" class="btn btn-primary hero-ticket-btn" data-en="Buy Tickets &mdash; $ 25" data-fr="Acheter des billets &mdash; 25 $">Buy Tickets &mdash; $ 25</a>
+            </div>
+
+            <!-- Newsletter signup -->
             <div class="hero-newsletter">
-                <p class="newsletter-label" data-en="Be the first to know about our next event" data-fr="Soyez les premiers informés de notre prochain événement">Be the first to know about our next event</p>
+                <p class="newsletter-label" data-en="Stay in the loop" data-fr="Restez inform&eacute;s">Stay in the loop</p>
                 <form class="newsletter-form" action="https://wyrdlifedrawing.us7.list-manage.com/subscribe/post?u=3040c9b8bb800c9e28cf993cd&amp;id=da9af9ef16&amp;f_id=007280e0f0" method="post" target="_blank">
                     <input type="email" name="EMAIL" placeholder="your@email.com" class="newsletter-input" required>
                     <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_3040c9b8bb800c9e28cf993cd_da9af9ef16" tabindex="-1" value=""></div>
-                    <button type="submit" class="btn btn-primary newsletter-btn" data-en="Notify Me" data-fr="M'avertir">Notify Me</button>
+                    <button type="submit" class="btn btn-secondary newsletter-btn" data-en="Notify Me" data-fr="M'avertir">Notify Me</button>
                 </form>
             </div>
-
-            <!-- Upcoming event CTA (hidden by default — uncomment and fill when you have a next event)
-            <div class="hero-event">
-                <h2 class="hero-event-name">Theme Name Here</h2>
-                <p class="hero-event-details">Date &middot; Venue</p>
-                <a href="TICKET_LINK" class="btn btn-primary" target="_blank">Get Tickets — $15 Early Bird</a>
-            </div>
-            -->
         </div>
     </section>
 
@@ -106,8 +111,19 @@
     <!-- Events -->
     <section class="section events" id="events">
         <div class="container">
-            <h2 class="section-title" data-en="Past Events" data-fr="Événements passés">Past Events</h2>
+            <h2 class="section-title" data-en="Events" data-fr="&Eacute;v&eacute;nements">Events</h2>
             <div class="events-grid">
+                <!-- Upcoming -->
+                <a href="event-post-apocalypse.html" class="event-card">
+                    <div class="event-card-image">
+                        <img src="images/postapoc-poster-1.jpg" alt="Post Apocalypse" loading="lazy">
+                        <span class="event-badge" data-en="Upcoming" data-fr="&Agrave; venir">Upcoming</span>
+                    </div>
+                    <div class="event-card-body">
+                        <h3 class="event-name" data-en="Post Apocalypse" data-fr="Post Apocalypse">Post Apocalypse</h3>
+                        <p class="event-meta" data-en="April 2026 &middot; Parquette" data-fr="Avril 2026 &middot; Parquette">April 2026 &middot; Parquette</p>
+                    </div>
+                </a>
                 <!-- Alice in Wonderland hidden until photos are ready -->
                 <a href="event-magical-girl.html" class="event-card">
                     <div class="event-card-image"><img src="images/magical-thumb.jpg" alt="Magical Girl Night" loading="lazy"></div>

@@ -184,7 +184,7 @@ img { max-width: 100%; display: block; }
     vertical-align: middle;
 }
 /* Newsletter */
-.hero-newsletter { margin-top: 32px; }
+.hero-newsletter { margin-top: 0; padding-top: 32px; border-top: 1px solid rgba(191, 255, 0, 0.1); }
 .newsletter-label {
     font-size: 0.95rem;
     color: var(--text-muted);
@@ -215,18 +215,52 @@ img { max-width: 100%; display: block; }
 .newsletter-input:focus { border-color: var(--green); }
 .newsletter-input::placeholder { color: var(--text-muted); }
 .newsletter-btn { padding: 12px 24px; }
-/* Hero event CTA */
-.hero-event { margin-top: 32px; }
+/* Hero upcoming event */
+.hero-upcoming {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.hero-poster-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.hero-poster-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.8);
+    opacity: 1;
+}
+.hero-poster-img {
+    width: 320px;
+    max-width: 80vw;
+    height: auto;
+    display: block;
+}
 .hero-event-name {
     font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     color: var(--green);
     margin-bottom: 8px;
 }
 .hero-event-details {
     color: var(--text-muted);
-    margin-bottom: 20px;
     font-size: 1rem;
+    margin-bottom: 8px;
+}
+.hero-event-collab {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 24px;
+}
+.hero-ticket-btn {
+    font-size: 1.1rem;
+    padding: 16px 48px;
+    letter-spacing: 1.5px;
 }
 .hero-title {
     font-family: var(--font-display);
@@ -421,7 +455,7 @@ img { max-width: 100%; display: block; }
 .event-badge {
     position: absolute;
     top: 12px;
-    right: 12px;
+    left: 12px;
     background: var(--green);
     color: var(--bg);
     padding: 4px 12px;
