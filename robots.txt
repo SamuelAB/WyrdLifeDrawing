@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /contact-sheet.html
+Disallow: /contact-medieval.html
+Disallow: /contact-forest-nymph.html
+Disallow: /004angels.html
+
+Sitemap: https://wyrdlifedrawing.com/sitemap.xml
