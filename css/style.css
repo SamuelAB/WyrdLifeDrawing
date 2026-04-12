@@ -219,7 +219,14 @@ img { max-width: 100%; display: block; }
 .hero-upcoming {
     margin-top: 40px;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
     text-align: center;
+}
+.hero-upcoming-event {
+    flex: 0 1 auto;
+    max-width: 360px;
 }
 .hero-poster-link {
     display: inline-block;
@@ -235,20 +242,20 @@ img { max-width: 100%; display: block; }
     opacity: 1;
 }
 .hero-poster-img {
-    width: 320px;
-    max-width: 80vw;
+    width: 280px;
+    max-width: 70vw;
     height: auto;
     display: block;
 }
 .hero-event-name {
     font-family: var(--font-display);
-    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     color: var(--green);
     margin-bottom: 8px;
 }
 .hero-event-details {
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 0.95rem;
     margin-bottom: 8px;
 }
 .hero-event-collab {
@@ -258,9 +265,19 @@ img { max-width: 100%; display: block; }
     margin-bottom: 24px;
 }
 .hero-ticket-btn {
-    font-size: 1.1rem;
-    padding: 16px 48px;
+    font-size: 1rem;
+    padding: 14px 36px;
     letter-spacing: 1.5px;
+}
+@media (max-width: 750px) {
+    .hero-upcoming {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .hero-poster-img {
+        width: 280px;
+    }
 }
 .hero-title {
     font-family: var(--font-display);
