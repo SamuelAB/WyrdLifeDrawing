@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Angels Life Drawing Night — Wyrd Life Drawing</title>
+    <meta name="description" content="Lost Angels Life Drawing Night at Cyber Love Garden Studio, May 9, 2026. Wyrd Life Drawing event with immersive atmospheres and cinematic lighting.">
+    <meta property="og:title" content="Lost Angels Life Drawing Night — Wyrd Life Drawing">
+    <meta property="og:description" content="Lost Angels Life Drawing Night at Cyber Love Garden Studio, May 2026.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://wyrdlifedrawing.com/images/angels-poster-1.jpg">
+    <meta property="og:url" content="https://wyrdlifedrawing.com/event-lost-angels.html">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="fr_CA">
+    <link rel="canonical" href="https://wyrdlifedrawing.com/event-lost-angels.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Lost Angels Life Drawing Night",
+      "description": "Lost Angels themed life drawing night with immersive atmospheres, cinematic lighting, and fantastical costumes. All levels welcome.",
+      "startDate": "2026-05-09T18:00:00-04:00",
+      "endDate": "2026-05-09T21:00:00-04:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Cyber Love Garden Studio",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montreal",
+          "addressRegion": "QC",
+          "addressCountry": "CA"
+        }
+      },
+      "image": "https://wyrdlifedrawing.com/images/angels-poster-1.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Wyrd Life Drawing",
+        "url": "https://wyrdlifedrawing.com"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX9WTQJSB7"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RX9WTQJSB7');</script>
+    <style>
+        .event-hero {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 400px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .event-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        .event-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.2) 100%);
+        }
+        .event-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem 1rem 3rem;
+            max-width: 800px;
+        }
+        .event-hero-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            color: #BFFF00;
+            margin-bottom: 0.5rem;
+        }
+        .event-hero-meta {
+            font-family: 'Inter', sans-serif;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .event-ticket-cta {
+            margin-top: 1.5rem;
+        }
+        .event-ticket-cta .btn {
+            font-size: 1.1rem;
+            padding: 16px 48px;
+        }
+        .event-back {
+            display: inline-block;
+            margin: 2rem auto;
+            padding: 0.5rem 1rem;
+            color: #BFFF00;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .event-back:hover { opacity: 0.7; }
+        .event-back::before { content: "\2190 "; }
+        .event-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 3rem;
+        }
+        .event-section-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.5rem;
+            color: #BFFF00;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .poster-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .poster-grid.single {
+            grid-template-columns: 1fr;
+            max-width: 400px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 4px;
+            background: #1a1a1a;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.03); }
+        @media (max-width: 900px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 550px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .event-hero { height: 50vh; min-height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.jpg" alt="Wyrd" class="nav-logo-img">
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html#about" data-en="About" data-fr="&Agrave; propos">About</a></li>
+            <li><a href="index.html#events" data-en="Events" data-fr="&Eacute;v&eacute;nements">Events</a></li>
+            <li><a href="index.html#team" data-en="Team" data-fr="&Eacute;quipe">Team</a></li>
+            <li><a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+        </ul>
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">FR</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="event-hero">
+        <img src="images/angels-hero.jpg" alt="Lost Angels Life Drawing Night" class="event-hero-img">
+        <div class="event-hero-overlay"></div>
+        <div class="event-hero-content">
+            <h1 class="event-hero-title" data-en="Lost Angels" data-fr="Lost Angels">Lost Angels</h1>
+            <p class="event-hero-meta">
+                <span data-en="May 9, 2026" data-fr="9 mai 2026">May 9, 2026</span><br>
+                <span>6:00 PM &ndash; 9:00 PM</span><br>
+                <span>Cyber Love Garden Studio</span>
+            </p>
+            <div class="event-ticket-cta">
+                <span class="btn btn-secondary" style="cursor:default;opacity:0.8;" data-en="Tickets Coming Soon" data-fr="Billets bient&ocirc;t disponibles">Tickets Coming Soon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back link -->
+    <div class="event-section" style="padding-bottom: 0;">
+        <a href="index.html#events" class="event-back" data-en="Back to all events" data-fr="Retour aux &eacute;v&eacute;nements">Back to all events</a>
+    </div>
+
+    <!-- Poster -->
+    <section class="event-section">
+        <h2 class="event-section-title" data-en="Poster" data-fr="Affiche">Poster</h2>
+        <div class="poster-grid single">
+            <div class="gallery-item"><img src="images/angels-poster-1.jpg" alt="Lost Angels poster" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- Photos will be added after the event -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">WYRD</span>
+                    <p>Montr&eacute;al, QC</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://linktr.ee/WyrdLifeDrawing" target="_blank" rel="noopener">Linktree</a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2025&ndash;2026 Wyrd Life Drawing</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+    <!-- Lightbox -->
+    <div id="lightbox" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;cursor:pointer;">
+        <button id="lb-close" style="position:absolute;top:20px;right:24px;background:none;border:none;color:#fff;font-size:2.2rem;cursor:pointer;z-index:2;line-height:1;" aria-label="Close">&times;</button>
+        <button id="lb-prev" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer;z-index:2;padding:8px;" aria-label="Previous">&#8249;</button>
+        <button id="lb-next" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;color:#fff;font-size:2.5rem;cursor:pointer;z-index:2;padding:8px;" aria-label="Next">&#8250;</button>
+        <img id="lb-img" src="" alt="" style="max-width:90vw;max-height:90vh;object-fit:contain;cursor:default;">
+    </div>
+    <script>
+    (function(){
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lb-img');
+        var imgs = [];
+        var idx = 0;
+        var touchStartX = 0;
+        document.querySelectorAll('.gallery-item img').forEach(function(img){
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function(e){
+                e.stopPropagation();
+                var section = img.closest('.event-section');
+                imgs = Array.from(section.querySelectorAll('.gallery-item img'));
+                idx = imgs.indexOf(img);
+                show();
+            });
+        });
+        function show(){
+            var src = imgs[idx].src;
+            if (!src || src === window.location.href) { src = imgs[idx].getAttribute('src'); }
+            lbImg.src = src;
+            lbImg.alt = imgs[idx].alt || '';
+            lb.style.display = 'flex';
+        }
+        function close(){ lb.style.display = 'none'; lbImg.src = ''; }
+        function prev(){ if(imgs.length){ idx = (idx - 1 + imgs.length) % imgs.length; show(); } }
+        function next(){ if(imgs.length){ idx = (idx + 1) % imgs.length; show(); } }
+        document.getElementById('lb-close').addEventListener('click', function(e){ e.stopPropagation(); close(); });
+        document.getElementById('lb-prev').addEventListener('click', function(e){ e.stopPropagation(); prev(); });
+        document.getElementById('lb-next').addEventListener('click', function(e){ e.stopPropagation(); next(); });
+        lb.addEventListener('click', close);
+        lbImg.addEventListener('click', function(e){ e.stopPropagation(); });
+        document.addEventListener('keydown', function(e){
+            if(lb.style.display === 'flex'){
+                if(e.key === 'Escape') close();
+                else if(e.key === 'ArrowLeft') prev();
+                else if(e.key === 'ArrowRight') next();
+            }
+        });
+        lb.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+        lb.addEventListener('touchend', function(e){
+            var dx = e.changedTouches[0].clientX - touchStartX;
+            if(dx > 50) prev();
+            else if(dx < -50) next();
+        }, {passive:true});
+    })();
+    </script>
+</body>
+</html>
