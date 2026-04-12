@@ -227,6 +227,9 @@ img { max-width: 100%; display: block; }
 .hero-upcoming-event {
     flex: 0 1 auto;
     max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .hero-poster-link {
     display: inline-block;
@@ -265,9 +268,12 @@ img { max-width: 100%; display: block; }
     margin-bottom: 24px;
 }
 .hero-ticket-btn {
+    margin-top: auto;
     font-size: 1rem;
     padding: 14px 36px;
     letter-spacing: 1.5px;
+    min-width: 240px;
+    text-align: center;
 }
 @media (max-width: 750px) {
     .hero-upcoming {
