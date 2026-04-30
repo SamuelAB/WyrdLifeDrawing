@@ -5,6 +5,13 @@
 (function () {
     'use strict';
 
+    // ── Team order shuffle (50/50) ──
+    // Randomly swap Sam and Esmee on each page load
+    var teamGrid = document.querySelector('.team-grid');
+    if (teamGrid && teamGrid.children.length === 2 && Math.random() < 0.5) {
+        teamGrid.appendChild(teamGrid.firstElementChild);
+    }
+
     // ── Language Toggle ──
     let currentLang = 'en';
     const langToggle = document.getElementById('langToggle');
