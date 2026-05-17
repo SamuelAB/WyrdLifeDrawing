@@ -373,25 +373,28 @@
 
     <script>
     // ============================================================
-    //  POSE CONFIGURATION - PLACEHOLDER
-    //  These durations will be refined to match exact song lengths
-    //  in the Gothic Cowboy Spotify playlist.
+    //  POSE CONFIGURATION
+    //  Durations match exact song-block lengths in the
+    //  Wyrd Life Drawing - Gothic Cowboy Spotify playlist.
+    //  When the last song of a block ends, the pose ends.
     // ============================================================
     const EVENT_NAME = "Gothic Country";
 
-    // 5 poses + tea break (2h 5min drawing + 20 min break = 2h 25min)
+    // 5 poses + tea break, durations match exact song lengths from the
+    // Wyrd Life Drawing - Gothic Cowboy Spotify playlist.
+    // Total drawing: 1h 43min  +  break 22:37  =  2h 5min
     const POSES = [
-        { duration: 600,  label: "Pose 1 — Gesture warm-up (10 min)",
-          detail: "Quick studies. Capture motion, get the eye loosened." },
-        { duration: 600,  label: "Pose 2 — Gothic edge (10 min)",
-          detail: "Faster, darker. Sit forward. Trust the line." },
-        { duration: 1800, label: "Pose 3 — First long pose (30 min)",
-          detail: "Settle in. Memory becomes more useful than sight. Let the amber gloom do its work." },
-        { break: true, duration: 1200, label: "20 min tea break" },
-        { duration: 1200, label: "Pose 4 — Rebuild (20 min)",
-          detail: "Back into rhythm after the break." },
-        { duration: 1800, label: "Pose 5 — Climax (30 min)",
-          detail: "The longest pose. The room opens. Draw what you feel as much as what you see." },
+        { duration: 617,  label: "Pose 1 — Gesture warm-up (10:17)",
+          detail: "Quick studies. Big Iron, Folsom Prison Blues, Drive Under the Moon." },
+        { duration: 622,  label: "Pose 2 — Gothic edge (10:22)",
+          detail: "Faster, darker. Brimstone Rock, 7 Devils, Hoist That Skirt." },
+        { duration: 2515, label: "Pose 3 — Long meditation (41:55)",
+          detail: "The deepest settle. Far From Any Road through Wayfaring Stranger. Nine tracks of slow burn." },
+        { break: true, duration: 1357, label: "Tea break (22:37)" },
+        { duration: 1415, label: "Pose 4 — Rebuild (23:35)",
+          detail: "Story-songs with rhythm. Run Man Run through Aim for the Heart." },
+        { duration: 1013, label: "Pose 5 — Climax (16:53)",
+          detail: "Focused intensity. Bear Creek Live, King Dude, and Ecstasy of Gold." },
     ];
 
     const WARNING_SECONDS = 30;
