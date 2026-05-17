@@ -18,7 +18,7 @@
       "@context": "https://schema.org",
       "@type": "Event",
       "name": "Gothic Country Life Drawing Night",
-      "description": "Gothic Country themed life drawing night with cinematic lighting, costumed models, and a curated soundtrack of murder ballads and gothic Americana.",
+      "description": "Gothic Country themed life drawing night with cinematic lighting, a costumed model, and a curated soundtrack of murder ballads and gothic Americana.",
       "startDate": "2026-06-20T18:00:00-04:00",
       "endDate": "2026-06-20T21:00:00-04:00",
       "eventStatus": "https://schema.org/EventScheduled",
@@ -241,6 +241,14 @@
             color: #d9a766;
             margin: 0;
         }
+        /* Non-drawing blocks (setup, doors, break, closing, after) — softer tone */
+        .mood-block.ambient {
+            border-left-color: rgba(180, 160, 130, 0.4);
+        }
+        .mood-block.ambient .mood-block-title {
+            color: #b6a384;
+            font-style: italic;
+        }
         .mood-block-time {
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
@@ -338,8 +346,8 @@
     <!-- Intro -->
     <section class="event-section">
         <div class="event-intro">
-            <p data-en="A life drawing night scenographed like a haunted saloon. Dust, lace, lantern-glow, smoke from incense burners, and a soundtrack of murder ballads and slow shuffles." data-fr="Une s&eacute;ance de dessin de mod&egrave;le vivant sc&eacute;nographi&eacute;e comme un saloon hant&eacute;. Poussi&egrave;re, dentelle, lueur de lanterne, fum&eacute;e d'encens, et une trame sonore de ballades sombres et de shuffles lents.">A life drawing night scenographed like a haunted saloon. Dust, lace, lantern-glow, smoke from incense burners, and a soundtrack of murder ballads and slow shuffles.</p>
-            <p data-en="Two costumed models hold the room across nine poses. Lighting alternates between amber gloom and stark silhouette, asking you to draw memory and feeling as much as form. All skill levels welcome." data-fr="Deux mod&egrave;les costum&eacute;&middot;e&middot;s tiennent la sc&egrave;ne &agrave; travers neuf poses. La lumi&egrave;re alterne entre p&eacute;nombre dor&eacute;e et silhouette nette, vous invitant &agrave; dessiner la m&eacute;moire et le ressenti autant que la forme. Tous les niveaux sont les bienvenus.">Two costumed models hold the room across nine poses. Lighting alternates between amber gloom and stark silhouette, asking you to draw memory and feeling as much as form. All skill levels welcome.</p>
+            <p data-en="A life drawing night scenographed like a haunted saloon. Dust, lace, lantern-glow, and a soundtrack of murder ballads and slow shuffles." data-fr="Une s&eacute;ance de dessin de mod&egrave;le vivant sc&eacute;nographi&eacute;e comme un saloon hant&eacute;. Poussi&egrave;re, dentelle, lueur de lanterne, et une trame sonore de ballades sombres et de shuffles lents.">A life drawing night scenographed like a haunted saloon. Dust, lace, lantern-glow, and a soundtrack of murder ballads and slow shuffles.</p>
+            <p data-en="A single costumed model holds the room across five poses. Lighting alternates between amber gloom and stark silhouette, asking you to draw memory and feeling as much as form. All skill levels welcome." data-fr="Un&middot;e mod&egrave;le costum&eacute;&middot;e tient la sc&egrave;ne &agrave; travers cinq poses. La lumi&egrave;re alterne entre p&eacute;nombre dor&eacute;e et silhouette nette, vous invitant &agrave; dessiner la m&eacute;moire et le ressenti autant que la forme. Tous les niveaux sont les bienvenus.">A single costumed model holds the room across five poses. Lighting alternates between amber gloom and stark silhouette, asking you to draw memory and feeling as much as form. All skill levels welcome.</p>
         </div>
     </section>
 
@@ -359,7 +367,7 @@
 
         <div class="soundscape">
 
-            <div class="mood-block">
+            <div class="mood-block ambient">
                 <div class="mood-block-header">
                     <h3 class="mood-block-title" data-en="Setup &middot; Load-in" data-fr="Installation">Setup &middot; Load-in</h3>
                     <span class="mood-block-time">5:00 &ndash; 6:00 PM</span>
@@ -381,7 +389,7 @@
                 </ul>
             </div>
 
-            <div class="mood-block">
+            <div class="mood-block ambient">
                 <div class="mood-block-header">
                     <h3 class="mood-block-title" data-en="Doors &middot; Pre-show" data-fr="Ouverture des portes">Doors &middot; Pre-show</h3>
                     <span class="mood-block-time">6:00 &ndash; 6:30 PM</span>
@@ -440,7 +448,7 @@
                 </ul>
             </div>
 
-            <div class="mood-block">
+            <div class="mood-block ambient">
                 <div class="mood-block-header">
                     <h3 class="mood-block-title" data-en="Tea break &middot; Mingle" data-fr="Pause th&eacute; &middot; Discussion">Tea break &middot; Mingle</h3>
                     <span class="mood-block-time">20 min</span>
@@ -489,7 +497,7 @@
                 </ul>
             </div>
 
-            <div class="mood-block">
+            <div class="mood-block ambient">
                 <div class="mood-block-header">
                     <h3 class="mood-block-title" data-en="Closing circle" data-fr="Cercle de cl&ocirc;ture">Closing circle</h3>
                     <span class="mood-block-time">15 min</span>
@@ -505,7 +513,7 @@
                 </ul>
             </div>
 
-            <div class="mood-block">
+            <div class="mood-block ambient">
                 <div class="mood-block-header">
                     <h3 class="mood-block-title" data-en="Wind-down &middot; After" data-fr="Apr&egrave;s l'&eacute;v&eacute;nement">Wind-down &middot; After</h3>
                     <span class="mood-block-time">9:00 &ndash; 10:00 PM</span>
