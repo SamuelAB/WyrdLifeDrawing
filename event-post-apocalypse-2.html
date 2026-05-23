@@ -147,6 +147,60 @@
             margin-bottom: 1rem;
         }
 
+        /* Newsletter signup block */
+        .event-newsletter {
+            max-width: 540px;
+            margin: 2.5rem auto 0;
+            text-align: center;
+            padding: 1.5rem 1.5rem 1.8rem;
+            background: rgba(232, 112, 64, 0.05);
+            border: 1px solid rgba(232, 112, 64, 0.2);
+            border-radius: 6px;
+        }
+        .event-newsletter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.98rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .event-newsletter-form {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .event-newsletter-input {
+            flex: 1 1 240px;
+            min-width: 0;
+            padding: 12px 14px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(232, 112, 64, 0.35);
+            color: #f0d8c0;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            border-radius: 4px;
+        }
+        .event-newsletter-input:focus {
+            outline: none;
+            border-color: rgba(232, 112, 64, 0.7);
+        }
+        .event-newsletter-btn {
+            background: #e87040;
+            color: #160a08;
+            border: none;
+            padding: 12px 22px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .event-newsletter-btn:hover {
+            background: #ff8855;
+        }
+
         @media (max-width: 600px) {
             .event-hero { height: 60vh; min-height: 380px; }
             .event-hero-ctas { flex-direction: column; align-items: stretch; }
@@ -199,9 +253,17 @@
     <!-- Intro -->
     <section class="event-section">
         <div class="event-intro">
-            <p data-en="A return to the wasteland. Rust, dust, scavenged cloth, lantern-light flickering across a costumed survivor of an unspecified collapse." data-fr="Un retour dans les terres d&eacute;sol&eacute;es. Rouille, poussi&egrave;re, tissu glan&eacute;, lumi&egrave;re de lanterne qui vacille sur un&middot;e survivant&middot;e costum&eacute;&middot;e d'un effondrement non sp&eacute;cifi&eacute;.">A return to the wasteland. Rust, dust, scavenged cloth, lantern-light flickering across a costumed survivor of an unspecified collapse.</p>
-            <p data-en="Five poses, a tea break, a closing circle. A curated playlist of industrial folk, dark Americana and post-collapse dirges. All skill levels welcome." data-fr="Cinq poses, une pause-th&eacute;, un cercle de cl&ocirc;ture. Une liste musicale de folk industriel, d'Americana sombre et de chants de fin du monde. Tous les niveaux sont les bienvenus.">Five poses, a tea break, a closing circle. A curated playlist of industrial folk, dark Americana and post-collapse dirges. All skill levels welcome.</p>
-            <p data-en="More details, full playlist and pose timer coming soon." data-fr="Plus de d&eacute;tails, liste musicale compl&egrave;te et minuterie de pose &agrave; venir.">More details, full playlist and pose timer coming soon.</p>
+            <p data-en="A return to the wasteland. Rust, dust, scavenged cloth, lantern-light flickers across a survivor's gaze." data-fr="Un retour dans les terres d&eacute;sol&eacute;es. Rouille, poussi&egrave;re, tissu glan&eacute;, lumi&egrave;re de lanterne qui vacille sur le regard d'un&middot;e survivant&middot;e.">A return to the wasteland. Rust, dust, scavenged cloth, lantern-light flickers across a survivor's gaze.</p>
+        </div>
+
+        <!-- Newsletter signup -->
+        <div class="event-newsletter">
+            <p class="event-newsletter-label" data-en="Early bird tickets coming soon. Sign up to the newsletter to get notified." data-fr="Billets de pr&eacute;vente bient&ocirc;t en vente. Inscrivez-vous &agrave; l'infolettre pour &ecirc;tre averti&middot;e.">Early bird tickets coming soon. Sign up to the newsletter to get notified.</p>
+            <form class="event-newsletter-form" action="https://wyrdlifedrawing.us7.list-manage.com/subscribe/post?u=3040c9b8bb800c9e28cf993cd&amp;id=da9af9ef16&amp;f_id=007280e0f0" method="post" target="_blank">
+                <input type="email" name="EMAIL" placeholder="your@email.com" class="event-newsletter-input" required>
+                <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_3040c9b8bb800c9e28cf993cd_da9af9ef16" tabindex="-1" value=""></div>
+                <button type="submit" class="event-newsletter-btn" data-en="Notify me" data-fr="M'avertir">Notify me</button>
+            </form>
         </div>
     </section>
 
