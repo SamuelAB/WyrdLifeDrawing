@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Apocalypse Life Drawing Night — Wyrd Life Drawing</title>
+    <meta name="description" content="Post Apocalypse Life Drawing Night at Cyber Love Garden, July 18, 2026. A second journey into dust, rust and rubble with cinematic lighting and a costumed survivor.">
+    <meta property="og:title" content="Post Apocalypse Life Drawing Night — Wyrd Life Drawing">
+    <meta property="og:description" content="A second Post Apocalypse evening. July 18, 2026 at Cyber Love Garden.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://wyrdlifedrawing.com/images/postapoc2-hero.jpg">
+    <meta property="og:url" content="https://wyrdlifedrawing.com/event-post-apocalypse-2.html">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="fr_CA">
+    <link rel="canonical" href="https://wyrdlifedrawing.com/event-post-apocalypse-2.html">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Post Apocalypse Life Drawing Night",
+      "description": "Post Apocalypse themed life drawing night with cinematic lighting, a costumed model, and a curated soundtrack.",
+      "startDate": "2026-07-18T18:00:00-04:00",
+      "endDate": "2026-07-18T21:00:00-04:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Cyber Love Garden",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montreal",
+          "addressRegion": "QC",
+          "addressCountry": "CA"
+        }
+      },
+      "image": "https://wyrdlifedrawing.com/images/postapoc2-hero.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Wyrd Life Drawing",
+        "url": "https://wyrdlifedrawing.com"
+      }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RX9WTQJSB7"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RX9WTQJSB7');</script>
+    <style>
+        .event-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 480px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .event-hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+        .event-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0.15) 100%);
+        }
+        .event-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem 1rem 3rem;
+            max-width: 820px;
+        }
+        .event-hero-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: clamp(2rem, 6vw, 3.6rem);
+            color: #e87040;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 0 30px rgba(232, 112, 64, 0.35), 0 2px 6px rgba(0,0,0,0.8);
+        }
+        .event-hero-meta {
+            font-family: 'Inter', sans-serif;
+            color: rgba(255,255,255,0.85);
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+        .event-hero-ctas {
+            margin-top: 1.6rem;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .event-hero-ctas .btn {
+            font-size: 1.05rem;
+            padding: 14px 36px;
+        }
+        .btn-coming-soon {
+            background: transparent;
+            color: rgba(232, 112, 64, 0.8);
+            border: 1px solid rgba(232, 112, 64, 0.5);
+            cursor: default;
+            padding: 14px 36px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1.05rem;
+            display: inline-block;
+        }
+
+        .event-back {
+            display: inline-block;
+            margin: 2rem auto;
+            padding: 0.5rem 1rem;
+            color: #e87040;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .event-back:hover { opacity: 0.7; }
+        .event-back::before { content: "\2190 "; }
+
+        .event-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem 3rem;
+        }
+        .event-intro {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            color: rgba(255,255,255,0.82);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        .event-intro p {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .event-hero { height: 60vh; min-height: 380px; }
+            .event-hero-ctas { flex-direction: column; align-items: stretch; }
+            .event-hero-ctas .btn,
+            .event-hero-ctas .btn-coming-soon { width: 100%; justify-content: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav-logo">
+            <img src="assets/logo.jpg" alt="Wyrd" class="nav-logo-img">
+        </a>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html#about" data-en="About" data-fr="&Agrave; propos">About</a></li>
+            <li><a href="index.html#events" data-en="Events" data-fr="&Eacute;v&eacute;nements">Events</a></li>
+            <li><a href="index.html#team" data-en="Team" data-fr="&Eacute;quipe">Team</a></li>
+            <li><a href="index.html#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+        </ul>
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">FR</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="event-hero">
+        <img src="images/postapoc2-hero.jpg" alt="Post Apocalypse Life Drawing Night" class="event-hero-img">
+        <div class="event-hero-overlay"></div>
+        <div class="event-hero-content">
+            <h1 class="event-hero-title" data-en="Post Apocalypse" data-fr="Post Apocalypse">Post Apocalypse</h1>
+            <p class="event-hero-meta">
+                <span data-en="Saturday, July 18, 2026" data-fr="Samedi 18 juillet 2026">Saturday, July 18, 2026</span><br>
+                <span data-en="6:00 PM doors &middot; 6:30 to 9:00 PM" data-fr="18 h portes &middot; 18 h 30 &agrave; 21 h">6:00 PM doors &middot; 6:30 to 9:00 PM</span><br>
+                <span>Cyber Love Garden &middot; Plateau Mont-Royal</span>
+            </p>
+            <div class="event-hero-ctas">
+                <span class="btn-coming-soon" data-en="Tickets coming soon" data-fr="Billets bient&ocirc;t">Tickets coming soon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back link -->
+    <div class="event-section" style="padding-bottom: 0;">
+        <a href="index.html#events" class="event-back" data-en="Back to all events" data-fr="Retour aux &eacute;v&eacute;nements">Back to all events</a>
+    </div>
+
+    <!-- Intro -->
+    <section class="event-section">
+        <div class="event-intro">
+            <p data-en="A return to the wasteland. Rust, dust, scavenged cloth, lantern-light flickering across a costumed survivor of an unspecified collapse." data-fr="Un retour dans les terres d&eacute;sol&eacute;es. Rouille, poussi&egrave;re, tissu glan&eacute;, lumi&egrave;re de lanterne qui vacille sur un&middot;e survivant&middot;e costum&eacute;&middot;e d'un effondrement non sp&eacute;cifi&eacute;.">A return to the wasteland. Rust, dust, scavenged cloth, lantern-light flickering across a costumed survivor of an unspecified collapse.</p>
+            <p data-en="Five poses, a tea break, a closing circle. A curated playlist of industrial folk, dark Americana and post-collapse dirges. All skill levels welcome." data-fr="Cinq poses, une pause-th&eacute;, un cercle de cl&ocirc;ture. Une liste musicale de folk industriel, d'Americana sombre et de chants de fin du monde. Tous les niveaux sont les bienvenus.">Five poses, a tea break, a closing circle. A curated playlist of industrial folk, dark Americana and post-collapse dirges. All skill levels welcome.</p>
+            <p data-en="More details, full playlist and pose timer coming soon." data-fr="Plus de d&eacute;tails, liste musicale compl&egrave;te et minuterie de pose &agrave; venir.">More details, full playlist and pose timer coming soon.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">WYRD</span>
+                    <p>Montr&eacute;al, QC</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://linktr.ee/WyrdLifeDrawing" target="_blank" rel="noopener">Linktree</a>
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2025&ndash;2026 Wyrd Life Drawing</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
