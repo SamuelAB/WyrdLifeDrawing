@@ -358,9 +358,9 @@
         </div>
 
         <div class="break-overlay" id="breakOverlay">
-            <h2>TEA BREAK</h2>
+            <h2 id="breakLabel">BREAK</h2>
             <div class="break-timer" id="breakTimer">00:00</div>
-            <div class="break-note">Stretch, sip, mingle. The longest poses come after.</div>
+            <div class="break-note" id="breakNote">Stretch. Sip. Mingle.</div>
         </div>
     </div>
 
@@ -380,8 +380,10 @@
     // ============================================================
     const EVENT_NAME = "Gothic Country";
 
-    // 5 poses + tea break. Total: 2h 30min posing + 30 min break = 3h drawing portion.
-    // (Model is contracted for 3h total session including the break.)
+    // 5 poses + 2 breaks. Total: 2h 30min posing + 2 x 15 min breaks = 3h drawing portion.
+    // (Model is contracted for 3h total session including breaks.)
+    // Breaks fall at narrative transitions: between Armed and The weight, and
+    // between The weight and In the dark.
     const POSES = [
         { duration: 900,  label: "Pose 1 — On watch (15:00)",
           detail: "Leg on the fur chair. Hat over the eyes. Looking into the distance.",
@@ -389,11 +391,14 @@
         { duration: 1200, label: "Pose 2 — Armed (20:00)",
           detail: "Gun in one hand, knife in the other. Fur on the shoulders. Eyes on the crowd.",
           image: "images/006gothcountry/Pose2.jpg" },
-        { duration: 3300, label: "Pose 3 — The weight (55:00)",
+        { break: true, duration: 900, label: "Stretch break (15:00)",
+          note: "Stretch, walk around. The long pose comes after." },
+        { duration: 3000, label: "Pose 3 — The weight (50:00)",
           detail: "Sitting. Eyes on the ground. Gun across the lap. Remembering, or guilty.",
           image: "images/006gothcountry/Pose3.jpg" },
-        { break: true, duration: 1800, label: "Tea break (30:00)" },
-        { duration: 1800, label: "Pose 4 — In the dark (30:00)",
+        { break: true, duration: 900, label: "Tea break (15:00)",
+          note: "Tea. Mingle. Two more poses to finish." },
+        { duration: 2100, label: "Pose 4 — In the dark (35:00)",
           detail: "Standing defiantly. A long streak of light across the face.",
           image: "images/006gothcountry/Pose4.jpg" },
         { duration: 1800, label: "Pose 5 — The aftermath (30:00)",
@@ -491,6 +496,9 @@
 
         if (pose.break) {
             $('breakOverlay').classList.add('active');
+            const breakName = (pose.label.split(' (')[0] || 'BREAK').toUpperCase();
+            $('breakLabel').textContent = breakName;
+            $('breakNote').textContent = pose.note || 'Stretch. Sip. Mingle.';
             $('breakTimer').textContent = formatTime(timeRemaining);
             $('timerDisplay').textContent = formatTime(timeRemaining);
             $('poseLabel').textContent = pose.label;

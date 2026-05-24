@@ -358,9 +358,9 @@
         </div>
 
         <div class="break-overlay" id="breakOverlay">
-            <h2>TEA BREAK</h2>
+            <h2 id="breakLabel">BREAK</h2>
             <div class="break-timer" id="breakTimer">00:00</div>
-            <div class="break-note">Stretch, sip, mingle. The longest poses come after.</div>
+            <div class="break-note" id="breakNote">Stretch. Sip. Mingle.</div>
         </div>
     </div>
 
@@ -380,8 +380,10 @@
     // ============================================================
     const EVENT_NAME = "Wastelands";
 
-    // 5 poses + tea break. Total: 2h 30min posing + 30 min break = 3h drawing portion.
-    // (Model is contracted for 3h total session including the break.)
+    // 5 poses + 2 breaks. Total: 2h 30min posing + 2 x 15 min breaks = 3h drawing portion.
+    // (Model is contracted for 3h total session including breaks.)
+    // Breaks fall at narrative transitions: between First contact and The rest, and
+    // between The rest and On the move.
     const POSES = [
         { duration: 900,  label: "Pose 1 — The horizon (15:00)",
           detail: "Standing on the rise. Hand at the brow. Scanning the distance.",
@@ -389,11 +391,14 @@
         { duration: 1200, label: "Pose 2 — First contact (20:00)",
           detail: "Crouched low, listening. Hand on the bag strap.",
           image: "images/007postapoc/Pose2.jpg" },
-        { duration: 3300, label: "Pose 3 — The rest (55:00)",
+        { break: true, duration: 900, label: "Stretch break (15:00)",
+          note: "Stretch, walk around. The long pose comes after." },
+        { duration: 3000, label: "Pose 3 — The rest (50:00)",
           detail: "Seated by the fire. Sorting through what was scavenged today.",
           image: "images/007postapoc/Pose3.jpg" },
-        { break: true, duration: 1800, label: "Tea break (30:00)" },
-        { duration: 1800, label: "Pose 4 — On the move (30:00)",
+        { break: true, duration: 900, label: "Tea break (15:00)",
+          note: "Tea. Mingle. Two more poses to finish." },
+        { duration: 2100, label: "Pose 4 — On the move (35:00)",
           detail: "Walking, pack on back. Mid-stride, frozen. Wind across the body.",
           image: "images/007postapoc/Pose4.jpg" },
         { duration: 1800, label: "Pose 5 — The find (30:00)",
@@ -491,6 +496,9 @@
 
         if (pose.break) {
             $('breakOverlay').classList.add('active');
+            const breakName = (pose.label.split(' (')[0] || 'BREAK').toUpperCase();
+            $('breakLabel').textContent = breakName;
+            $('breakNote').textContent = pose.note || 'Stretch. Sip. Mingle.';
             $('breakTimer').textContent = formatTime(timeRemaining);
             $('timerDisplay').textContent = formatTime(timeRemaining);
             $('poseLabel').textContent = pose.label;
