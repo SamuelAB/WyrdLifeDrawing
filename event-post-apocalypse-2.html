@@ -76,6 +76,16 @@
                 height: calc(100% - 120px);
             }
         }
+        /* On very wide screens, cap the image width so the portrait crop
+           doesn't over-zoom and reduce the model to just the top of the head. */
+        @media (min-width: 1400px) {
+            .event-hero-img {
+                max-width: 1400px;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+            }
+        }
         .event-hero-overlay {
             position: absolute;
             inset: 0;
