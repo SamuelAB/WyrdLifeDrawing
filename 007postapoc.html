@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Pose Timer — Post Apocalypse — Wyrd Life Drawing</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0d0a14;
+            color: #e8d4f0;
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* START SCREEN */
+        .start-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #1f1530 0%, #0d0a14 70%);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .start-screen h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            color: #b87fd9;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 40px rgba(184, 127, 217, 0.4);
+        }
+
+        .start-screen .event-name {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: #968fa6;
+            margin-bottom: 48px;
+            font-style: italic;
+        }
+
+        .start-screen .pose-count {
+            font-size: 1rem;
+            color: #6e5d80;
+            margin-bottom: 32px;
+        }
+
+        .start-btn {
+            background: #b87fd9;
+            color: #0d0a14;
+            border: none;
+            padding: 20px 64px;
+            font-size: 1.4rem;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+            box-shadow: 0 0 40px rgba(184, 127, 217, 0.3);
+        }
+
+        .start-btn:hover, .start-btn:active {
+            background: #d4a8e8;
+            box-shadow: 0 0 60px rgba(184, 127, 217, 0.5);
+        }
+
+        /* TIMER SCREEN */
+        .timer-screen {
+            display: none;
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .pose-image-container {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #060410;
+        }
+
+        .pose-image {
+            max-width: 100%;
+            max-height: 100vh;
+            object-fit: contain;
+        }
+
+        .pose-image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #4a3d5e;
+            font-size: 1.2rem;
+            gap: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .pose-image-placeholder .pose-number {
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: #b87fd9;
+            font-weight: bold;
+            font-family: 'Georgia', serif;
+            letter-spacing: 4px;
+        }
+
+        .pose-image-placeholder .pose-detail {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: #968fa6;
+            font-style: italic;
+            max-width: 600px;
+        }
+
+        /* TIMER OVERLAY */
+        .timer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 24px;
+            background: linear-gradient(to bottom, rgba(13, 10, 20, 0.85) 0%, rgba(13, 10, 20, 0) 100%);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .timer-display {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: bold;
+            color: #b87fd9;
+            text-shadow: 0 0 30px rgba(184, 127, 217, 0.5), 0 2px 8px rgba(0,0,0,0.8);
+            font-variant-numeric: tabular-nums;
+            line-height: 1;
+        }
+
+        .timer-display.warning {
+            color: #ff5530;
+            text-shadow: 0 0 30px rgba(255, 85, 48, 0.6);
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .pose-info {
+            text-align: right;
+            line-height: 1.3;
+        }
+
+        .pose-info .pose-label {
+            font-size: clamp(1rem, 3vw, 1.6rem);
+            color: #968fa6;
+        }
+
+        .pose-info .pose-duration {
+            font-size: clamp(0.8rem, 2vw, 1.1rem);
+            color: #6e5d80;
+        }
+
+        /* PROGRESS BAR */
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: rgba(184, 127, 217, 0.15);
+            z-index: 10;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #b87fd9;
+            transition: width 1s linear;
+        }
+
+        .progress-fill.warning {
+            background: #ff5530;
+        }
+
+        /* CONTROLS */
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 16px;
+            z-index: 30;
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .ctrl-btn {
+            background: rgba(184, 127, 217, 0.25);
+            border: 1px solid rgba(184, 127, 217, 0.5);
+            color: #b87fd9;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+            cursor: pointer;
+            border-radius: 4px;
+            backdrop-filter: blur(8px);
+        }
+
+        .ctrl-btn:hover, .ctrl-btn:active {
+            background: rgba(184, 127, 217, 0.45);
+        }
+
+        /* TRANSITION */
+        .transition-overlay {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: rgba(13, 10, 20, 0.95);
+            z-index: 20;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .transition-overlay.active {
+            display: flex;
+        }
+
+        .transition-text {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #b87fd9;
+            text-align: center;
+        }
+
+        .transition-next {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: #968fa6;
+            font-style: italic;
+            text-align: center;
+            padding: 0 24px;
+            max-width: 720px;
+        }
+
+        /* END SCREEN */
+        .end-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: radial-gradient(ellipse at center, #1f1530 0%, #0d0a14 70%);
+            text-align: center;
+            padding: 24px;
+        }
+
+        .end-screen h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #b87fd9;
+            margin-bottom: 16px;
+        }
+
+        .end-screen p {
+            font-size: 1.2rem;
+            color: #968fa6;
+            margin-bottom: 40px;
+        }
+
+        /* BREAK SCREEN */
+        .break-overlay {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, #1f1530 0%, #0d0a14 70%);
+            z-index: 20;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .break-overlay.active {
+            display: flex;
+        }
+
+        .break-overlay h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #b87fd9;
+        }
+
+        .break-overlay .break-timer {
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: #968fa6;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .break-overlay .break-note {
+            color: #6e5d80;
+            font-style: italic;
+            font-size: 1rem;
+            max-width: 480px;
+            text-align: center;
+            padding: 0 24px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- START SCREEN -->
+    <div class="start-screen" id="startScreen">
+        <h1>WYRD LIFE DRAWING</h1>
+        <div class="event-name" id="eventName">Post Apocalypse</div>
+        <div class="pose-count" id="poseCount"></div>
+        <button class="start-btn" id="startBtn">START</button>
+    </div>
+
+    <!-- TIMER SCREEN -->
+    <div class="timer-screen" id="timerScreen">
+        <div class="pose-image-container" id="poseContainer"></div>
+
+        <div class="timer-overlay">
+            <div class="timer-display" id="timerDisplay">00:00</div>
+            <div class="pose-info">
+                <div class="pose-label" id="poseLabel"></div>
+                <div class="pose-duration" id="poseDuration"></div>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="controls" id="controls">
+            <button class="ctrl-btn" id="prevBtn">PREV</button>
+            <button class="ctrl-btn" id="pauseBtn">PAUSE</button>
+            <button class="ctrl-btn" id="nextBtn">NEXT</button>
+        </div>
+
+        <div class="transition-overlay" id="transitionOverlay">
+            <div class="transition-text" id="transitionText"></div>
+            <div class="transition-next" id="transitionNext"></div>
+        </div>
+
+        <div class="break-overlay" id="breakOverlay">
+            <h2>TEA BREAK</h2>
+            <div class="break-timer" id="breakTimer">00:00</div>
+            <div class="break-note">Stretch, sip, mingle. The longest poses come after.</div>
+        </div>
+    </div>
+
+    <!-- END SCREEN -->
+    <div class="end-screen" id="endScreen">
+        <h2>Thank you!</h2>
+        <p>Wyrd Life Drawing &middot; Post Apocalypse</p>
+        <button class="start-btn" onclick="location.reload()">RESTART</button>
+    </div>
+
+    <script>
+    // ============================================================
+    //  POSE CONFIGURATION
+    //  Durations match exact song-block lengths in the
+    //  Wyrd Life Drawing - Post Apocalypse Spotify playlist.
+    //  When the last song of a block ends, the pose ends.
+    // ============================================================
+    const EVENT_NAME = "Post Apocalypse";
+
+    // 5 poses + tea break, durations match exact song lengths from the
+    // Wyrd Life Drawing - Post Apocalypse Spotify playlist.
+    // Total drawing: 1h 38min 46s  +  break 21:04  =  1h 59min 50s
+    const POSES = [
+        { duration: 578,  label: "Pose 1 — The horizon (9:38)",
+          detail: "Standing on the rise. Hand at the brow. Scanning the distance.",
+          image: "images/007postapoc/Pose1.jpg" },
+        { duration: 628,  label: "Pose 2 — First contact (10:28)",
+          detail: "Crouched low, listening. Hand on the bag strap.",
+          image: "images/007postapoc/Pose2.jpg" },
+        { duration: 2518, label: "Pose 3 — The rest (41:58)",
+          detail: "Seated by the fire. Sorting through what was scavenged today.",
+          image: "images/007postapoc/Pose3.jpg" },
+        { break: true, duration: 1264, label: "Tea break (21:04)" },
+        { duration: 1352, label: "Pose 4 — On the move (22:32)",
+          detail: "Walking, pack on back. Mid-stride, frozen. Wind across the body.",
+          image: "images/007postapoc/Pose4.jpg" },
+        { duration: 850,  label: "Pose 5 — The find (14:10)",
+          detail: "Kneeling. A fire, or a body, or a seed. Examining.",
+          image: "images/007postapoc/Pose5.jpg" },
+    ];
+
+    const WARNING_SECONDS = 30;
+    const TRANSITION_MS = 3000;
+
+    // ============================================================
+    //  AUDIO
+    // ============================================================
+    let audioCtx = null;
+
+    function initAudio() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playChime() {
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+        [523.25, 659.25].forEach((freq, i) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.3, now + i * 0.15);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.15 + 1.2);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + i * 0.15);
+            osc.stop(now + i * 0.15 + 1.5);
+        });
+    }
+
+    function playEndChime() {
+        if (!audioCtx) return;
+        const now = audioCtx.currentTime;
+        [783.99, 659.25, 523.25].forEach((freq, i) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            gain.gain.setValueAtTime(0.35, now + i * 0.2);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.2 + 1.5);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start(now + i * 0.2);
+            osc.stop(now + i * 0.2 + 2);
+        });
+    }
+
+    // ============================================================
+    //  TIMER ENGINE
+    // ============================================================
+    let currentPoseIndex = 0;
+    let timeRemaining = 0;
+    let totalTime = 0;
+    let timerInterval = null;
+    let isPaused = false;
+
+    const $ = id => document.getElementById(id);
+
+    const poseOnlyCount = POSES.filter(p => !p.break).length;
+    $('eventName').textContent = EVENT_NAME;
+    $('poseCount').textContent = poseOnlyCount + ' poses + 1 break';
+
+    function formatTime(seconds) {
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+    }
+
+    function showPose(index) {
+        const pose = POSES[index];
+        if (!pose) {
+            endSession();
+            return;
+        }
+
+        currentPoseIndex = index;
+        timeRemaining = pose.duration;
+        totalTime = pose.duration;
+        isPaused = false;
+        $('pauseBtn').textContent = 'PAUSE';
+
+        $('transitionOverlay').classList.remove('active');
+        $('breakOverlay').classList.remove('active');
+
+        if (pose.break) {
+            $('breakOverlay').classList.add('active');
+            $('breakTimer').textContent = formatTime(timeRemaining);
+            $('timerDisplay').textContent = formatTime(timeRemaining);
+            $('poseLabel').textContent = pose.label;
+            $('poseDuration').textContent = formatTime(pose.duration) + ' total';
+        } else {
+            const container = $('poseContainer');
+            if (pose.image) {
+                container.innerHTML = '<img src="' + pose.image + '" alt="' +
+                    (pose.label || '') + '" class="pose-image">';
+            } else {
+                // Fallback placeholder if no image is set
+                container.innerHTML = '<div class="pose-image-placeholder">' +
+                    '<div class="pose-number">' + (pose.label.split(' — ')[0] || pose.label) + '</div>' +
+                    '<div class="pose-detail">' + (pose.detail || '') + '</div>' +
+                    '</div>';
+            }
+
+            $('timerDisplay').textContent = formatTime(timeRemaining);
+            $('poseLabel').textContent = pose.label;
+            $('poseDuration').textContent = formatTime(pose.duration) + ' total';
+        }
+
+        updateProgress();
+        startTimer();
+    }
+
+    function startTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+
+        timerInterval = setInterval(() => {
+            if (isPaused) return;
+
+            timeRemaining--;
+
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                playEndChime();
+                transitionToNext();
+                return;
+            }
+
+            $('timerDisplay').textContent = formatTime(timeRemaining);
+
+            const isWarning = timeRemaining <= WARNING_SECONDS;
+            $('timerDisplay').classList.toggle('warning', isWarning);
+            $('progressFill').classList.toggle('warning', isWarning);
+
+            if (POSES[currentPoseIndex].break) {
+                $('breakTimer').textContent = formatTime(timeRemaining);
+            }
+
+            updateProgress();
+        }, 1000);
+    }
+
+    function updateProgress() {
+        const pct = ((totalTime - timeRemaining) / totalTime) * 100;
+        $('progressFill').style.width = pct + '%';
+    }
+
+    function transitionToNext() {
+        const nextIndex = currentPoseIndex + 1;
+        const nextPose = POSES[nextIndex];
+
+        if (!nextPose) {
+            endSession();
+            return;
+        }
+
+        $('transitionOverlay').classList.add('active');
+        $('transitionText').textContent = nextPose.break ? 'Break time' : 'Next pose';
+        $('transitionNext').textContent = nextPose.label;
+
+        setTimeout(() => {
+            playChime();
+            showPose(nextIndex);
+        }, TRANSITION_MS);
+    }
+
+    function endSession() {
+        clearInterval(timerInterval);
+        $('timerScreen').style.display = 'none';
+        $('endScreen').style.display = 'flex';
+    }
+
+    // ============================================================
+    //  CONTROLS
+    // ============================================================
+    $('startBtn').addEventListener('click', () => {
+        initAudio();
+        playChime();
+        $('startScreen').style.display = 'none';
+        $('timerScreen').style.display = 'block';
+        showPose(0);
+    });
+
+    $('pauseBtn').addEventListener('click', () => {
+        isPaused = !isPaused;
+        $('pauseBtn').textContent = isPaused ? 'RESUME' : 'PAUSE';
+    });
+
+    $('nextBtn').addEventListener('click', () => {
+        clearInterval(timerInterval);
+        $('timerDisplay').classList.remove('warning');
+        $('progressFill').classList.remove('warning');
+        playChime();
+        showPose(currentPoseIndex + 1);
+    });
+
+    $('prevBtn').addEventListener('click', () => {
+        if (currentPoseIndex > 0) {
+            clearInterval(timerInterval);
+            $('timerDisplay').classList.remove('warning');
+            $('progressFill').classList.remove('warning');
+            playChime();
+            showPose(currentPoseIndex - 1);
+        }
+    });
+    </script>
+</body>
+</html>
