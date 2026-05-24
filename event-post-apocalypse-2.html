@@ -332,6 +332,33 @@
             color: rgba(255,255,255,0.5);
         }
 
+        /* Pose blocks with reference image */
+        .mood-block.with-pose {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 1.6rem;
+            align-items: start;
+        }
+        .mood-block-pose {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .mood-block-pose img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            border: 1px solid rgba(184, 127, 217, 0.25);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 700px) {
+            .mood-block.with-pose {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 600px) {
             .event-hero { height: 60vh; min-height: 380px; }
             .event-hero-ctas { flex-direction: column; align-items: stretch; }
@@ -454,45 +481,60 @@
                 </ul>
             </div>
 
-            <div class="mood-block">
-                <div class="mood-block-header">
-                    <h3 class="mood-block-title" data-en="Pose 1 &middot; The horizon" data-fr="Pose 1 &middot; L'horizon">Pose 1 &middot; The horizon</h3>
-                    <span class="mood-block-time">9:38</span>
+            <div class="mood-block with-pose">
+                <div class="mood-block-content">
+                    <div class="mood-block-header">
+                        <h3 class="mood-block-title" data-en="Pose 1 &middot; The horizon" data-fr="Pose 1 &middot; L'horizon">Pose 1 &middot; The horizon</h3>
+                        <span class="mood-block-time">9:38</span>
+                    </div>
+                    <p class="mood-block-desc" data-en="She stands on a small rise, hand at her brow, scanning the distance. Looking for smoke. Looking for movement. Looking for anything worth walking to." data-fr="Elle se tient sur un petit promontoire, la main au front, scrutant l'horizon. Cherchant de la fum&eacute;e. Cherchant un mouvement. Cherchant quelque chose qui vaille le d&eacute;placement.">She stands on a small rise, hand at her brow, scanning the distance. Looking for smoke. Looking for movement. Looking for anything worth walking to.</p>
+                    <ul class="mood-block-tracks">
+                        <li>The Fennecs Name is Defiance <span class="track-artist">&middot; Istasha</span></li>
+                        <li>Goin' Out West <span class="track-artist">&middot; Tom Waits</span></li>
+                        <li>Starburster <span class="track-artist">&middot; Fontaines D.C.</span></li>
+                    </ul>
                 </div>
-                <p class="mood-block-desc" data-en="She stands on a small rise, hand at her brow, scanning the distance. Looking for smoke. Looking for movement. Looking for anything worth walking to." data-fr="Elle se tient sur un petit promontoire, la main au front, scrutant l'horizon. Cherchant de la fum&eacute;e. Cherchant un mouvement. Cherchant quelque chose qui vaille le d&eacute;placement.">She stands on a small rise, hand at her brow, scanning the distance. Looking for smoke. Looking for movement. Looking for anything worth walking to.</p>
-                <ul class="mood-block-tracks">
-                    <li>The Fennecs Name is Defiance <span class="track-artist">&middot; Istasha</span></li>
-                    <li>Goin' Out West <span class="track-artist">&middot; Tom Waits</span></li>
-                    <li>Starburster <span class="track-artist">&middot; Fontaines D.C.</span></li>
-                </ul>
+                <div class="mood-block-pose">
+                    <img src="images/007postapoc/Pose1.jpg" alt="Pose 1 reference" loading="lazy">
+                </div>
             </div>
 
-            <div class="mood-block">
-                <div class="mood-block-header">
-                    <h3 class="mood-block-title" data-en="Pose 2 &middot; First contact" data-fr="Pose 2 &middot; Premier contact">Pose 2 &middot; First contact</h3>
-                    <span class="mood-block-time">10:28</span>
+            <div class="mood-block with-pose">
+                <div class="mood-block-content">
+                    <div class="mood-block-header">
+                        <h3 class="mood-block-title" data-en="Pose 2 &middot; First contact" data-fr="Pose 2 &middot; Premier contact">Pose 2 &middot; First contact</h3>
+                        <span class="mood-block-time">10:28</span>
+                    </div>
+                    <p class="mood-block-desc" data-en="She's crouched low, listening. Something is moving out there. Her hand is on the strap of her bag, not yet a weapon." data-fr="Elle est accroupie, &agrave; l'&eacute;coute. Quelque chose bouge l&agrave;-bas. Sa main est sur la sangle de son sac, pas encore sur une arme.">She's crouched low, listening. Something is moving out there. Her hand is on the strap of her bag, not yet a weapon.</p>
+                    <ul class="mood-block-tracks">
+                        <li>March of the Pigs <span class="track-artist">&middot; Nine Inch Nails</span></li>
+                        <li>STONEFIST <span class="track-artist">&middot; HEALTH</span></li>
+                        <li>Black Box <span class="track-artist">&middot; Automatic</span></li>
+                    </ul>
                 </div>
-                <p class="mood-block-desc" data-en="She's crouched low, listening. Something is moving out there. Her hand is on the strap of her bag, not yet a weapon." data-fr="Elle est accroupie, &agrave; l'&eacute;coute. Quelque chose bouge l&agrave;-bas. Sa main est sur la sangle de son sac, pas encore sur une arme.">She's crouched low, listening. Something is moving out there. Her hand is on the strap of her bag, not yet a weapon.</p>
-                <ul class="mood-block-tracks">
-                    <li>March of the Pigs <span class="track-artist">&middot; Nine Inch Nails</span></li>
-                    <li>STONEFIST <span class="track-artist">&middot; HEALTH</span></li>
-                    <li>Black Box <span class="track-artist">&middot; Automatic</span></li>
-                </ul>
+                <div class="mood-block-pose">
+                    <img src="images/007postapoc/Pose2.jpg" alt="Pose 2 reference" loading="lazy">
+                </div>
             </div>
 
-            <div class="mood-block">
-                <div class="mood-block-header">
-                    <h3 class="mood-block-title" data-en="Pose 3 &middot; The rest" data-fr="Pose 3 &middot; Le repos">Pose 3 &middot; The rest</h3>
-                    <span class="mood-block-time">41:58</span>
+            <div class="mood-block with-pose">
+                <div class="mood-block-content">
+                    <div class="mood-block-header">
+                        <h3 class="mood-block-title" data-en="Pose 3 &middot; The rest" data-fr="Pose 3 &middot; Le repos">Pose 3 &middot; The rest</h3>
+                        <span class="mood-block-time">41:58</span>
+                    </div>
+                    <p class="mood-block-desc" data-en="The long sit. She's by a small fire, sorting through what she scavenged today, a broken radio, a child's toy, a wire stripped clean. She isn't sad. She's home, in the only way that's left." data-fr="Le long s&eacute;jour assis. Pr&egrave;s d'un petit feu, elle trie ce qu'elle a glan&eacute; aujourd'hui : une radio cass&eacute;e, un jouet d'enfant, un fil d&eacute;nud&eacute;. Elle n'est pas triste. Elle est chez elle, de la seule fa&ccedil;on qui reste.">The long sit. She's by a small fire, sorting through what she scavenged today, a broken radio, a child's toy, a wire stripped clean. She isn't sad. She's home, in the only way that's left.</p>
+                    <ul class="mood-block-tracks">
+                        <li>Father Midnight <span class="track-artist">&middot; Earth</span></li>
+                        <li>The Wild Rover <span class="track-artist">&middot; Lankum</span></li>
+                        <li>Emptylands <span class="track-artist">&middot; Blood Cultures</span></li>
+                        <li>Red Rocking Chair <span class="track-artist">&middot; All Them Witches</span></li>
+                        <li>Sherpa <span class="track-artist">&middot; Angine de Poitrine</span></li>
+                    </ul>
                 </div>
-                <p class="mood-block-desc" data-en="The long sit. She's by a small fire, sorting through what she scavenged today, a broken radio, a child's toy, a wire stripped clean. She isn't sad. She's home, in the only way that's left." data-fr="Le long s&eacute;jour assis. Pr&egrave;s d'un petit feu, elle trie ce qu'elle a glan&eacute; aujourd'hui : une radio cass&eacute;e, un jouet d'enfant, un fil d&eacute;nud&eacute;. Elle n'est pas triste. Elle est chez elle, de la seule fa&ccedil;on qui reste.">The long sit. She's by a small fire, sorting through what she scavenged today, a broken radio, a child's toy, a wire stripped clean. She isn't sad. She's home, in the only way that's left.</p>
-                <ul class="mood-block-tracks">
-                    <li>Father Midnight <span class="track-artist">&middot; Earth</span></li>
-                    <li>The Wild Rover <span class="track-artist">&middot; Lankum</span></li>
-                    <li>Emptylands <span class="track-artist">&middot; Blood Cultures</span></li>
-                    <li>Red Rocking Chair <span class="track-artist">&middot; All Them Witches</span></li>
-                    <li>Sherpa <span class="track-artist">&middot; Angine de Poitrine</span></li>
-                </ul>
+                <div class="mood-block-pose">
+                    <img src="images/007postapoc/Pose3.jpg" alt="Pose 3 reference" loading="lazy">
+                </div>
             </div>
 
             <div class="mood-block ambient">
@@ -510,32 +552,42 @@
                 </ul>
             </div>
 
-            <div class="mood-block">
-                <div class="mood-block-header">
-                    <h3 class="mood-block-title" data-en="Pose 4 &middot; On the move" data-fr="Pose 4 &middot; En route">Pose 4 &middot; On the move</h3>
-                    <span class="mood-block-time">22:32</span>
+            <div class="mood-block with-pose">
+                <div class="mood-block-content">
+                    <div class="mood-block-header">
+                        <h3 class="mood-block-title" data-en="Pose 4 &middot; On the move" data-fr="Pose 4 &middot; En route">Pose 4 &middot; On the move</h3>
+                        <span class="mood-block-time">22:32</span>
+                    </div>
+                    <p class="mood-block-desc" data-en="She's walking, pack on her back, one hand near her weapon, the other loose. Mid-stride, frozen. The wind is moving across her." data-fr="Elle marche, sac sur le dos, une main pr&egrave;s de son arme, l'autre libre. &Agrave; mi-pas, fig&eacute;e. Le vent traverse sa silhouette.">She's walking, pack on her back, one hand near her weapon, the other loose. Mid-stride, frozen. The wind is moving across her.</p>
+                    <ul class="mood-block-tracks">
+                        <li>Brothers In Arms <span class="track-artist">&middot; Junkie XL</span></li>
+                        <li>Le perv <span class="track-artist">&middot; Carpenter Brut</span></li>
+                        <li>ORDINARY LOSS <span class="track-artist">&middot; HEALTH</span></li>
+                        <li>Worlock <span class="track-artist">&middot; Skinny Puppy</span></li>
+                        <li>Pharmacide <span class="track-artist">&middot; Author &amp; Punisher</span></li>
+                    </ul>
                 </div>
-                <p class="mood-block-desc" data-en="She's walking, pack on her back, one hand near her weapon, the other loose. Mid-stride, frozen. The wind is moving across her." data-fr="Elle marche, sac sur le dos, une main pr&egrave;s de son arme, l'autre libre. &Agrave; mi-pas, fig&eacute;e. Le vent traverse sa silhouette.">She's walking, pack on her back, one hand near her weapon, the other loose. Mid-stride, frozen. The wind is moving across her.</p>
-                <ul class="mood-block-tracks">
-                    <li>Brothers In Arms <span class="track-artist">&middot; Junkie XL</span></li>
-                    <li>Le perv <span class="track-artist">&middot; Carpenter Brut</span></li>
-                    <li>ORDINARY LOSS <span class="track-artist">&middot; HEALTH</span></li>
-                    <li>Worlock <span class="track-artist">&middot; Skinny Puppy</span></li>
-                    <li>Pharmacide <span class="track-artist">&middot; Author &amp; Punisher</span></li>
-                </ul>
+                <div class="mood-block-pose">
+                    <img src="images/007postapoc/Pose4.jpg" alt="Pose 4 reference" loading="lazy">
+                </div>
             </div>
 
-            <div class="mood-block">
-                <div class="mood-block-header">
-                    <h3 class="mood-block-title" data-en="Pose 5 &middot; The find" data-fr="Pose 5 &middot; La trouvaille">Pose 5 &middot; The find</h3>
-                    <span class="mood-block-time">14:10</span>
+            <div class="mood-block with-pose">
+                <div class="mood-block-content">
+                    <div class="mood-block-header">
+                        <h3 class="mood-block-title" data-en="Pose 5 &middot; The find" data-fr="Pose 5 &middot; La trouvaille">Pose 5 &middot; The find</h3>
+                        <span class="mood-block-time">14:10</span>
+                    </div>
+                    <p class="mood-block-desc" data-en="She kneels at the edge of something. Maybe a body. Maybe a seed, the first green thing she's seen in months. Her face says she hasn't decided yet whether to mourn or to celebrate." data-fr="Elle s'agenouille au bord de quelque chose. Peut-&ecirc;tre un corps. Peut-&ecirc;tre une graine, la premi&egrave;re chose verte qu'elle ait vue depuis des mois. Son visage ne sait pas encore s'il faut pleurer ou c&eacute;l&eacute;brer.">She kneels at the edge of something. Maybe a body. Maybe a seed, the first green thing she's seen in months. Her face says she hasn't decided yet whether to mourn or to celebrate.</p>
+                    <ul class="mood-block-tracks">
+                        <li>Painted Sun in Abstract <span class="track-artist">&middot; Trent Reznor &amp; Atticus Ross</span></li>
+                        <li>S&aelig;gl&oacute;pur <span class="track-artist">&middot; Sigur R&oacute;s</span></li>
+                        <li>Tears in Rain <span class="track-artist">&middot; Vangelis</span></li>
+                    </ul>
                 </div>
-                <p class="mood-block-desc" data-en="She kneels at the edge of something. Maybe a body. Maybe a seed, the first green thing she's seen in months. Her face says she hasn't decided yet whether to mourn or to celebrate." data-fr="Elle s'agenouille au bord de quelque chose. Peut-&ecirc;tre un corps. Peut-&ecirc;tre une graine, la premi&egrave;re chose verte qu'elle ait vue depuis des mois. Son visage ne sait pas encore s'il faut pleurer ou c&eacute;l&eacute;brer.">She kneels at the edge of something. Maybe a body. Maybe a seed, the first green thing she's seen in months. Her face says she hasn't decided yet whether to mourn or to celebrate.</p>
-                <ul class="mood-block-tracks">
-                    <li>Painted Sun in Abstract <span class="track-artist">&middot; Trent Reznor &amp; Atticus Ross</span></li>
-                    <li>S&aelig;gl&oacute;pur <span class="track-artist">&middot; Sigur R&oacute;s</span></li>
-                    <li>Tears in Rain <span class="track-artist">&middot; Vangelis</span></li>
-                </ul>
+                <div class="mood-block-pose">
+                    <img src="images/007postapoc/Pose5.jpg" alt="Pose 5 reference" loading="lazy">
+                </div>
             </div>
 
             <div class="mood-block ambient">
