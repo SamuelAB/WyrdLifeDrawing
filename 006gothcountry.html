@@ -382,19 +382,24 @@
 
     // 5 poses + tea break, durations match exact song lengths from the
     // Wyrd Life Drawing - Gothic Cowboy Spotify playlist.
-    // Total drawing: 1h 43min  +  break 22:37  =  2h 5min
+    // Total drawing: 1h 40min 51s  +  break 22:37  =  2h 3min 28s
     const POSES = [
         { duration: 617,  label: "Pose 1 — Gesture warm-up (10:17)",
-          detail: "Quick studies. Big Iron, Folsom Prison Blues, Drive Under the Moon." },
+          detail: "Arrival. Big Iron sets the room.",
+          image: "images/006gothcountry/Pose1.jpg" },
         { duration: 622,  label: "Pose 2 — Gothic edge (10:22)",
-          detail: "Faster, darker. Brimstone Rock, 7 Devils, Hoist That Skirt." },
-        { duration: 2515, label: "Pose 3 — Long meditation (41:55)",
-          detail: "The deepest settle. Far From Any Road through Wayfaring Stranger. Nine tracks of slow burn." },
+          detail: "Edge. Brimstone Rock turns the screws.",
+          image: "images/006gothcountry/Pose2.jpg" },
+        { duration: 2464, label: "Pose 3 — Long meditation (41:04)",
+          detail: "Meditation. Father Midnight unspools the long burn.",
+          image: "images/006gothcountry/Pose3.jpg" },
         { break: true, duration: 1357, label: "Tea break (22:37)" },
         { duration: 1415, label: "Pose 4 — Rebuild (23:35)",
-          detail: "Story-songs with rhythm. Run Man Run through Aim for the Heart." },
-        { duration: 1013, label: "Pose 5 — Climax (16:53)",
-          detail: "Focused intensity. Bear Creek Live, King Dude, and Ecstasy of Gold." },
+          detail: "Showdown. Aim for the Heart.",
+          image: "images/006gothcountry/Pose4.jpg" },
+        { duration: 933,  label: "Pose 5 — Climax (15:33)",
+          detail: "Transfiguration. King Dude lights the candles.",
+          image: "images/006gothcountry/Pose5.jpg" },
     ];
 
     const WARNING_SECONDS = 30;
@@ -492,12 +497,17 @@
             $('poseLabel').textContent = pose.label;
             $('poseDuration').textContent = formatTime(pose.duration) + ' total';
         } else {
-            // No pose images yet — show placeholder with pose detail
             const container = $('poseContainer');
-            container.innerHTML = '<div class="pose-image-placeholder">' +
-                '<div class="pose-number">' + (pose.label.split(' — ')[0] || pose.label) + '</div>' +
-                '<div class="pose-detail">' + (pose.detail || '') + '</div>' +
-                '</div>';
+            if (pose.image) {
+                container.innerHTML = '<img src="' + pose.image + '" alt="' +
+                    (pose.label || '') + '" class="pose-image">';
+            } else {
+                // Fallback placeholder if no image is set
+                container.innerHTML = '<div class="pose-image-placeholder">' +
+                    '<div class="pose-number">' + (pose.label.split(' — ')[0] || pose.label) + '</div>' +
+                    '<div class="pose-detail">' + (pose.detail || '') + '</div>' +
+                    '</div>';
+            }
 
             $('timerDisplay').textContent = formatTime(timeRemaining);
             $('poseLabel').textContent = pose.label;
