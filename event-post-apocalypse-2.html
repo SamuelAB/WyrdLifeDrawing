@@ -67,6 +67,14 @@
             object-fit: cover;
             object-position: center top;
         }
+        /* On wider screens the portrait hero crops the model's face up against the
+           fixed nav. Shift the image down so the face clears the nav. */
+        @media (min-width: 769px) {
+            .event-hero-img {
+                top: 80px;
+                height: calc(100% - 80px);
+            }
+        }
         .event-hero-overlay {
             position: absolute;
             inset: 0;
