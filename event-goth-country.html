@@ -81,6 +81,7 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
+            background: #0a0a0a;
         }
         .event-hero-img {
             position: absolute;
@@ -90,12 +91,12 @@
             object-fit: cover;
             object-position: center top;
         }
-        /* On wider screens the portrait hero crops the model's face up against the
-           fixed nav. Shift the image down so the face clears the nav. */
+        /* On wider screens the portrait hero crops the model's hat up against the
+           fixed nav. Shift the image down so the model clears the nav with room. */
         @media (min-width: 769px) {
             .event-hero-img {
-                top: 80px;
-                height: calc(100% - 80px);
+                top: 120px;
+                height: calc(100% - 120px);
             }
         }
         .event-hero-overlay {
