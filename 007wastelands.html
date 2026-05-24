@@ -374,34 +374,34 @@
     <script>
     // ============================================================
     //  POSE CONFIGURATION
-    //  Durations targeted to model's 3-hour session contract
-    //  (2h 30min posing + 30 min break).
-    //  Music plays in the background; the timer is the source of truth.
+    //  Durations are exact song-block sums from the
+    //  Wyrd Life Drawing - Wastelands Spotify playlist.
+    //  When the last song of a block ends, the pose ends.
     // ============================================================
     const EVENT_NAME = "Wastelands";
 
-    // 5 poses + 2 breaks. Total: 2h 30min posing + 2 x 15 min breaks = 3h drawing portion.
-    // (Model is contracted for 3h total session including breaks.)
-    // Breaks fall at narrative transitions: between First contact and The rest, and
-    // between The rest and On the move.
+    // 5 poses + 2 breaks. Durations are the EXACT song-block sums from the
+    // Wyrd Life Drawing - Wastelands Spotify playlist. Music is the backbone.
+    // When the last song of a block ends, the pose ends.
+    // Total drawing portion: 2h 53min 1s.
     const POSES = [
-        { duration: 900,  label: "Pose 1 — The horizon (15:00)",
+        { duration: 878,  label: "Pose 1 — The horizon (14:38)",
           detail: "Standing on the rise. Hand at the brow. Scanning the distance.",
           image: "images/007postapoc/Pose1.jpg" },
-        { duration: 1200, label: "Pose 2 — First contact (20:00)",
+        { duration: 1125, label: "Pose 2 — First contact (18:45)",
           detail: "Crouched low, listening. Hand on the bag strap.",
           image: "images/007postapoc/Pose2.jpg" },
-        { break: true, duration: 900, label: "Stretch break (15:00)",
+        { break: true, duration: 908, label: "Stretch break (15:08)",
           note: "Stretch, walk around. The long pose comes after." },
-        { duration: 3000, label: "Pose 3 — The rest (50:00)",
+        { duration: 2991, label: "Pose 3 — The rest (49:51)",
           detail: "Seated by the fire. Sorting through what was scavenged today.",
           image: "images/007postapoc/Pose3.jpg" },
-        { break: true, duration: 900, label: "Tea break (15:00)",
+        { break: true, duration: 856, label: "Tea break (14:16)",
           note: "Tea. Mingle. Two more poses to finish." },
-        { duration: 2100, label: "Pose 4 — On the move (35:00)",
+        { duration: 1969, label: "Pose 4 — On the move (32:49)",
           detail: "Walking, pack on back. Mid-stride, frozen. Wind across the body.",
           image: "images/007postapoc/Pose4.jpg" },
-        { duration: 1800, label: "Pose 5 — The find (30:00)",
+        { duration: 1714, label: "Pose 5 — The find (28:34)",
           detail: "Kneeling. A fire, or a body, or a seed. Examining.",
           image: "images/007postapoc/Pose5.jpg" },
     ];
