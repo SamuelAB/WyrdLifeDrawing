@@ -374,30 +374,29 @@
     <script>
     // ============================================================
     //  POSE CONFIGURATION
-    //  Durations match exact song-block lengths in the
-    //  Wyrd Life Drawing - Wastelands Spotify playlist.
-    //  When the last song of a block ends, the pose ends.
+    //  Durations targeted to model's 3-hour session contract
+    //  (2h 30min posing + 30 min break).
+    //  Music plays in the background; the timer is the source of truth.
     // ============================================================
     const EVENT_NAME = "Wastelands";
 
-    // 5 poses + tea break, durations match exact song lengths from the
-    // Wyrd Life Drawing - Wastelands Spotify playlist.
-    // Total drawing: 1h 38min 46s  +  break 21:04  =  1h 59min 50s
+    // 5 poses + tea break. Total: 2h 30min posing + 30 min break = 3h drawing portion.
+    // (Model is contracted for 3h total session including the break.)
     const POSES = [
-        { duration: 578,  label: "Pose 1 — The horizon (9:38)",
+        { duration: 900,  label: "Pose 1 — The horizon (15:00)",
           detail: "Standing on the rise. Hand at the brow. Scanning the distance.",
           image: "images/007postapoc/Pose1.jpg" },
-        { duration: 628,  label: "Pose 2 — First contact (10:28)",
+        { duration: 1200, label: "Pose 2 — First contact (20:00)",
           detail: "Crouched low, listening. Hand on the bag strap.",
           image: "images/007postapoc/Pose2.jpg" },
-        { duration: 2518, label: "Pose 3 — The rest (41:58)",
+        { duration: 3300, label: "Pose 3 — The rest (55:00)",
           detail: "Seated by the fire. Sorting through what was scavenged today.",
           image: "images/007postapoc/Pose3.jpg" },
-        { break: true, duration: 1264, label: "Tea break (21:04)" },
-        { duration: 1352, label: "Pose 4 — On the move (22:32)",
+        { break: true, duration: 1800, label: "Tea break (30:00)" },
+        { duration: 1800, label: "Pose 4 — On the move (30:00)",
           detail: "Walking, pack on back. Mid-stride, frozen. Wind across the body.",
           image: "images/007postapoc/Pose4.jpg" },
-        { duration: 850,  label: "Pose 5 — The find (14:10)",
+        { duration: 1800, label: "Pose 5 — The find (30:00)",
           detail: "Kneeling. A fire, or a body, or a seed. Examining.",
           image: "images/007postapoc/Pose5.jpg" },
     ];

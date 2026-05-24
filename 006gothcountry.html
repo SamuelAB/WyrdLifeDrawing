@@ -374,30 +374,29 @@
     <script>
     // ============================================================
     //  POSE CONFIGURATION
-    //  Durations match exact song-block lengths in the
-    //  Wyrd Life Drawing - Gothic Cowboy Spotify playlist.
-    //  When the last song of a block ends, the pose ends.
+    //  Durations targeted to model's 3-hour session contract
+    //  (2h 30min posing + 30 min break).
+    //  Music plays in the background; the timer is the source of truth.
     // ============================================================
     const EVENT_NAME = "Gothic Country";
 
-    // 5 poses + tea break, durations match exact song lengths from the
-    // Wyrd Life Drawing - Gothic Cowboy Spotify playlist.
-    // Total drawing: 1h 40min 51s  +  break 22:37  =  2h 3min 28s
+    // 5 poses + tea break. Total: 2h 30min posing + 30 min break = 3h drawing portion.
+    // (Model is contracted for 3h total session including the break.)
     const POSES = [
-        { duration: 617,  label: "Pose 1 — On watch (10:17)",
+        { duration: 900,  label: "Pose 1 — On watch (15:00)",
           detail: "Leg on the fur chair. Hat over the eyes. Looking into the distance.",
           image: "images/006gothcountry/Pose1.jpg" },
-        { duration: 622,  label: "Pose 2 — Armed (10:22)",
+        { duration: 1200, label: "Pose 2 — Armed (20:00)",
           detail: "Gun in one hand, knife in the other. Fur on the shoulders. Eyes on the crowd.",
           image: "images/006gothcountry/Pose2.jpg" },
-        { duration: 2464, label: "Pose 3 — The weight (41:04)",
+        { duration: 3300, label: "Pose 3 — The weight (55:00)",
           detail: "Sitting. Eyes on the ground. Gun across the lap. Remembering, or guilty.",
           image: "images/006gothcountry/Pose3.jpg" },
-        { break: true, duration: 1357, label: "Tea break (22:37)" },
-        { duration: 1415, label: "Pose 4 — In the dark (23:35)",
+        { break: true, duration: 1800, label: "Tea break (30:00)" },
+        { duration: 1800, label: "Pose 4 — In the dark (30:00)",
           detail: "Standing defiantly. A long streak of light across the face.",
           image: "images/006gothcountry/Pose4.jpg" },
-        { duration: 933,  label: "Pose 5 — The aftermath (15:33)",
+        { duration: 1800, label: "Pose 5 — The aftermath (30:00)",
           detail: "Kneeling. Looking down at what might be a fire, or a body.",
           image: "images/006gothcountry/Pose5.jpg" },
     ];
