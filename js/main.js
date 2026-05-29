@@ -12,33 +12,40 @@
         teamGrid.appendChild(teamGrid.firstElementChild);
     }
 
-    // ── Language Toggle ──
-    let currentLang = 'en';
-    const langToggle = document.getElementById('langToggle');
+    // ── Language Toggle (persists across pages, auto-detects FR browsers) ──
+    var langToggle = document.getElementById('langToggle');
+    var LANG_KEY = 'wyrd-lang';
+
+    function applyLang(lang) {
+        langToggle.textContent = lang === 'en' ? 'FR' : 'EN';
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-en][data-fr]').forEach(function (el) {
+            var text = el.getAttribute('data-' + lang);
+            if (!text) return;
+            // Preserve child elements (like links inside text)
+            if (el.children.length > 0 && el.querySelector('a')) {
+                var nodes = el.childNodes;
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].nodeType === Node.TEXT_NODE && nodes[i].textContent.trim()) {
+                        nodes[i].textContent = text + ' ';
+                        break;
+                    }
+                }
+            } else {
+                el.textContent = text;
+            }
+        });
+    }
+
+    var storedLang = null;
+    try { storedLang = localStorage.getItem(LANG_KEY); } catch (e) {}
+    var currentLang = storedLang || (((navigator.language || '').toLowerCase().indexOf('fr') === 0) ? 'fr' : 'en');
+    if (currentLang === 'fr') { applyLang('fr'); } else { langToggle.textContent = 'FR'; }
 
     langToggle.addEventListener('click', function () {
         currentLang = currentLang === 'en' ? 'fr' : 'en';
-        langToggle.textContent = currentLang === 'en' ? 'FR' : 'EN';
-        document.documentElement.lang = currentLang === 'en' ? 'en' : 'fr';
-
-        document.querySelectorAll('[data-en][data-fr]').forEach(function (el) {
-            var text = el.getAttribute('data-' + currentLang);
-            if (text) {
-                // Preserve child elements (like links inside text)
-                if (el.children.length > 0 && el.querySelector('a')) {
-                    // For elements that contain links, only update the text node
-                    var nodes = el.childNodes;
-                    for (var i = 0; i < nodes.length; i++) {
-                        if (nodes[i].nodeType === Node.TEXT_NODE && nodes[i].textContent.trim()) {
-                            nodes[i].textContent = text + ' ';
-                            break;
-                        }
-                    }
-                } else {
-                    el.textContent = text;
-                }
-            }
-        });
+        applyLang(currentLang);
+        try { localStorage.setItem(LANG_KEY, currentLang); } catch (e) {}
     });
 
     // ── Mobile Navigation ──
@@ -98,22 +105,28 @@
         rootMargin: '0px 0px -50px 0px'
     };
 
-    var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Apply initial hidden state and observe
-    document.querySelectorAll('.section').forEach(function (section) {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(section);
-    });
+    // Progressive enhancement: only hide + animate when supported and motion is allowed.
+    // No-JS, unsupported, or reduced-motion users keep all content visible by default.
+    if ('IntersectionObserver' in window && !reduceMotion) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(function (section) {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+    }
 
     // ── Active nav link highlighting ──
     var sections = document.querySelectorAll('.section');

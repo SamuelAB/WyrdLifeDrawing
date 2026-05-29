@@ -6,5 +6,7 @@ Disallow: /contact-medieval.html
 Disallow: /contact-forest-nymph.html
 Disallow: /004angels.html
 Disallow: /004postapoc.html
+Disallow: /006gothcountry.html
+Disallow: /007wastelands.html
 
 Sitemap: https://wyrdlifedrawing.com/sitemap.xml
