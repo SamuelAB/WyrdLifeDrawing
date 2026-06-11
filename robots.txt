@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
 Disallow: /contact-sheet.html
@@ -8,6 +8,5 @@ Disallow: /004angels.html
 Disallow: /004postapoc.html
 Disallow: /006gothcountry.html
 Disallow: /007wastelands.html
-Disallow: /staging/
 
 Sitemap: https://wyrdlifedrawing.com/sitemap.xml

@@ -43,264 +43,341 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#BFFF00; --green-dark:#7a9900; --green-glow:rgba(191,255,0,.25);
+  --bg:#0a0a0a; --bg-1:#121212; --bg-2:#181818; --card:#1b1b1b;
+  --text:#ededed; --muted:#9a9a9a; --line:rgba(255,255,255,.08);
+  --display:'Cinzel Decorative',serif; --body:'Inter',sans-serif;
+  --maxw:1180px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--green);font-weight:600}
+.section-title{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.6rem);letter-spacing:.04em;margin:10px 0 8px}
+.section-lead{color:var(--muted);max-width:560px;font-weight:300}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;padding:14px 30px;border-radius:6px;border:1px solid transparent;cursor:pointer;transition:.25s}
+.btn-primary{background:var(--green);color:#0a0a0a}
+.btn-primary:hover{box-shadow:0 0 28px var(--green-glow);transform:translateY(-2px)}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,.25);color:var(--text)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.skip-link{position:absolute;left:-9999px;top:0;z-index:300;background:var(--green);color:#0a0a0a;padding:10px 18px;border-radius:0 0 6px 0;font-weight:600}
+.skip-link:focus{left:0}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;background:rgba(10,10,10,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:900;letter-spacing:.18em;color:var(--green);font-size:1rem}
+.nav-logo img{width:34px;height:34px;border-radius:50%}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text);opacity:.85;transition:.2s}
+.nav-links a:hover{color:var(--green);opacity:1}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.nav-toggle span{width:24px;height:2px;background:var(--green);transition:.3s;display:block}
+.lang{background:transparent;border:1px solid var(--green);color:var(--green);padding:6px 13px;border-radius:5px;font-size:.72rem;font-weight:600;letter-spacing:.1em;cursor:pointer}
+.lang:hover{background:var(--green);color:#0a0a0a}
+@media(max-width:820px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(10,10,10,.97);border-bottom:1px solid var(--line);padding:10px 0}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:13px 28px}
+  .nav-toggle{display:flex}
+}
+
+/* HERO — decluttered: brand + one CTA */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 35%,rgba(10,10,10,.45),rgba(10,10,10,.82) 70%,rgba(10,10,10,.97))}
+.hero-inner{position:relative;z-index:1;padding:24px}
+.hero-logo{width:104px;height:104px;border-radius:50%;margin:0 auto 22px;filter:drop-shadow(0 0 26px var(--green-glow))}
+.hero h1{font-family:var(--display);font-size:clamp(2.6rem,7vw,5rem);font-weight:900;color:var(--green);letter-spacing:.04em;text-shadow:0 0 60px var(--green-glow);line-height:1.05}
+.hero-tag{margin:18px auto 6px;color:#dcdcdc;font-weight:300;font-size:clamp(1rem,2.4vw,1.35rem);max-width:520px}
+.hero-loc{color:var(--muted);letter-spacing:.28em;text-transform:uppercase;font-size:.78rem;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);width:2px;height:46px;background:linear-gradient(var(--green),transparent);opacity:.6;animation:pulse 2.2s infinite}
+@keyframes pulse{0%,100%{opacity:.2;transform:translateX(-50%) scaleY(.6)}50%{opacity:.7;transform:translateX(-50%) scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.scrolldown{animation:none}}
+
+/* UPCOMING — the star */
+.section{padding:96px 0}
+.upcoming{background:var(--bg)}
+.up-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:44px}
+.up-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.3s}
+.up-card:hover{transform:translateY(-6px);border-color:rgba(191,255,0,.35);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.up-poster{aspect-ratio:4/5;overflow:hidden;position:relative}
+.up-poster img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.up-card:hover .up-poster img{transform:scale(1.04)}
+.up-badge{position:absolute;top:14px;left:14px;background:var(--green);color:#0a0a0a;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:5px}
+.up-body{padding:26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.up-name{font-family:var(--display);font-size:1.55rem;color:var(--text)}
+.up-meta{color:var(--green);font-size:.82rem;letter-spacing:.06em;font-weight:500}
+.up-hook{color:var(--muted);font-weight:300;font-size:.95rem;flex:1}
+.up-body .btn{align-self:flex-start;margin-top:8px}
+.pass{margin-top:30px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;text-align:center;padding:20px 28px;border-radius:12px;background:linear-gradient(135deg,rgba(217,167,102,.14),rgba(184,127,217,.16));border:1px solid rgba(255,255,255,.16)}
+.pass b{font-family:var(--display);letter-spacing:.14em;background:linear-gradient(135deg,#d9a766,#b87fd9);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.pass span{color:#e7e7e7}
+.pass a{color:#b87fd9;font-weight:600;letter-spacing:.08em}
+@media(max-width:760px){.up-grid{grid-template-columns:1fr}}
+
+/* LOOKBOOK — atmosphere is the product */
+.look{background:var(--bg-1);padding:90px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.look .wrap{max-width:none;padding-left:24px}
+.look-head{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.look-strip{display:flex;gap:16px;overflow-x:auto;padding:36px 24px 14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.look-strip::-webkit-scrollbar{height:8px}
+.look-strip::-webkit-scrollbar-thumb{background:#2a2a2a;border-radius:8px}
+.look-strip img{height:340px;width:auto;border-radius:12px;scroll-snap-align:center;flex:0 0 auto;object-fit:cover;filter:saturate(1.05)}
+@media(max-width:640px){.look-strip img{height:240px}}
+
+/* ABOUT */
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start;margin-top:40px}
+.about-text p{color:#cfcfcf;font-weight:300;margin-bottom:18px;line-height:1.85}
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.feat .ic{font-size:1.4rem;display:block;margin-bottom:10px}
+.feat h3{font-family:var(--display);font-size:.92rem;color:var(--green);letter-spacing:.04em;margin-bottom:6px}
+.feat p{font-size:.84rem;color:var(--muted);font-weight:300}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px}}
+
+/* PAST — leaner portfolio/archive */
+.past{background:var(--bg-2)}
+.past-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;margin-top:40px}
+.past-card{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line)}
+.past-card img{width:100%;height:100%;object-fit:cover;transition:.5s;opacity:.78}
+.past-card:hover img{opacity:1;transform:scale(1.05)}
+.past-cap{position:absolute;inset:auto 0 0 0;padding:30px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.past-cap h4{font-family:var(--display);font-size:1rem;color:#fff}
+.past-cap span{font-size:.72rem;color:var(--muted)}
+
+/* TEAM */
+.team{background:var(--bg)}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:780px;margin:44px auto 0}
+.tm{text-align:center}
+.tm-photo{width:150px;height:150px;border-radius:50%;border:3px solid var(--green);overflow:hidden;margin:0 auto 18px}
+.tm-photo img{width:100%;height:100%;object-fit:cover}
+.tm h3{font-family:var(--display);font-size:1.3rem;margin-bottom:6px}
+.tm .role{color:var(--green);font-size:.8rem;letter-spacing:.04em;margin-bottom:12px}
+.tm .bio{color:var(--muted);font-weight:300;font-size:.9rem;line-height:1.7}
+.tm a{color:var(--green);font-size:.82rem;display:inline-block;margin-top:8px}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr;gap:40px}}
+
+/* NEWSLETTER band */
+.news{background:linear-gradient(180deg,var(--bg),var(--bg-1));text-align:center;padding:80px 0}
+.news h2{font-family:var(--display);font-size:clamp(1.5rem,3.5vw,2.2rem);margin-bottom:10px}
+.news p{color:var(--muted);margin-bottom:26px;font-weight:300}
+.news .wrap > div{max-width:440px;margin:0 auto}
+
+/* CONTACT + FOOTER */
+.contact{background:var(--bg-2);text-align:center}
+.contact p{color:var(--muted);max-width:480px;margin:0 auto 30px;font-weight:300}
+.contact-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.clink{display:flex;align-items:center;gap:9px;padding:14px 24px;background:var(--card);border:1px solid var(--line);border-radius:8px;transition:.25s}
+.clink:hover{border-color:var(--green);color:var(--green)}
+.footer{padding:40px 0 26px;border-top:1px solid var(--line);text-align:center}
+.footer .fl{font-family:var(--display);font-weight:900;letter-spacing:.22em;color:var(--green)}
+.footer .links{display:flex;gap:20px;justify-content:center;margin:14px 0}
+.footer .links a{font-size:.82rem;color:var(--muted)}
+.footer .links a:hover{color:var(--green)}
+.footer .cr{font-size:.74rem;color:#666;margin-top:8px}
+</style>
 </head>
 <body>
-    <a href="#hero" class="skip-link" data-en="Skip to content" data-fr="Aller au contenu">Skip to content</a>
+<a href="#top" class="skip-link" data-en="Skip to content" data-fr="Aller au contenu">Skip to content</a>
 
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <a href="index.html" class="nav-logo">
-            <img src="assets/logo.jpg" alt="Wyrd" class="nav-logo-img">
-        </a>
-        <button class="nav-toggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links">
-            <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
-            <li><a href="#events" data-en="Events" data-fr="Événements">Events</a></li>
-            <li><a href="#team" data-en="Team" data-fr="Équipe">Team</a></li>
-            <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
-        </ul>
-        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">FR</button>
-    </nav>
+<nav class="nav" id="nav">
+  <a class="nav-logo" href="index.html"><img src="assets/logo.jpg" alt="Wyrd">WYRD</a>
+  <ul class="nav-links">
+    <li><a href="#upcoming" data-en="Upcoming" data-fr="À venir">Upcoming</a></li>
+    <li><a href="#atmosphere" data-en="Atmosphere" data-fr="Ambiance">Atmosphere</a></li>
+    <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
+    <li><a href="#past" data-en="Past Nights" data-fr="Soirées passées">Past Nights</a></li>
+    <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang" id="langToggle" aria-label="Toggle language">FR</button>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <!-- Hero — Upcoming event featured -->
-    <section class="hero" id="hero">
-        <div class="hero-bg">
-            <img src="images/hero-event.jpg" alt="" class="hero-bg-img">
-            <div class="hero-bg-overlay"></div>
+<!-- HERO: brand + ONE clear action -->
+<header class="hero" id="top">
+  <div class="hero-bg"><img src="images/hero-event.jpg" alt=""></div>
+  <div class="hero-inner">
+    <img class="hero-logo" src="assets/logo.jpg" alt="Wyrd Life Drawing">
+    <h1>Wyrd Life Drawing</h1>
+    <p class="hero-tag" data-en="Themed, immersive life drawing nights in Montréal." data-fr="Soirées de dessin de modèle vivant immersives et thématiques à Montréal.">Themed, immersive life drawing nights in Montréal.</p>
+    <p class="hero-loc">Montréal, QC</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#upcoming" data-en="See upcoming nights" data-fr="Voir les soirées">See upcoming nights</a>
+      <a class="btn btn-ghost" href="#atmosphere" data-en="The atmosphere" data-fr="L'ambiance">The atmosphere</a>
+    </div>
+  </div>
+  <div class="scrolldown"></div>
+</header>
+
+<!-- UPCOMING: prominent, ticket-forward -->
+<section class="section upcoming" id="upcoming">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Next up" data-fr="À venir">Next up</span>
+    <h2 class="section-title" data-en="Upcoming Nights" data-fr="Soirées à venir">Upcoming Nights</h2>
+    <div class="up-grid">
+      <article class="up-card">
+        <div class="up-poster"><span class="up-badge">Jun 20</span><img src="images/goth-country-hero.jpg" alt="Gothic Country"></div>
+        <div class="up-body">
+          <h3 class="up-name">Gothic Country</h3>
+          <p class="up-meta" data-en="Saturday, June 20, 2026 · Cyber Love Garden" data-fr="Samedi 20 juin 2026 · Cyber Love Garden">Saturday, June 20, 2026 · Cyber Love Garden</p>
+          <p class="up-hook" data-en="A haunted-saloon scenography of dust, lace and lantern-glow, drawn to a soundtrack of murder ballads." data-fr="Une scénographie de saloon hanté : poussière, dentelle et lueur de lanterne, sur une trame de ballades sombres.">A haunted-saloon scenography of dust, lace and lantern-glow, drawn to a soundtrack of murder ballads.</p>
+          <a class="btn btn-primary" href="https://buytickets.at/wyrdlifedrawing/2220183" target="_blank" rel="noopener" data-en="Buy Tickets" data-fr="Billets">Buy Tickets</a>
         </div>
-        <div class="hero-content">
-            <img src="assets/logo.jpg" alt="Wyrd Life Drawing" class="hero-logo-img">
-            <h1 class="hero-title">Wyrd Life Drawing</h1>
-            <p class="hero-subtitle" data-en="Weird and wonderful life drawing events" data-fr="Des événements de dessin de modèle vivant étranges et merveilleux">Weird and wonderful life drawing events</p>
-            <p class="hero-location">Montréal, QC</p>
-
-            <!-- Upcoming events -->
-            <div class="hero-upcoming">
-                <div class="hero-upcoming-event">
-                    <a href="event-goth-country.html" class="hero-poster-link">
-                        <img src="images/goth-country-hero.jpg" alt="Gothic Country Life Drawing Night" class="hero-poster-img">
-                    </a>
-                    <h2 class="hero-event-name" data-en="Gothic Country" data-fr="Gothic Country">Gothic Country</h2>
-                    <p class="hero-event-details">
-                        <span data-en="Saturday, June 20, 2026" data-fr="Samedi 20 juin 2026">Saturday, June 20, 2026</span> &middot; <span data-en="Cyber Love Garden" data-fr="Cyber Love Garden">Cyber Love Garden</span>
-                    </p>
-                    <a href="https://buytickets.at/wyrdlifedrawing/2220183" target="_blank" rel="noopener" class="btn btn-primary hero-ticket-btn" data-en="Buy Tickets" data-fr="Acheter des billets">Buy Tickets</a>
-                </div>
-                <div class="hero-upcoming-event">
-                    <a href="event-wastelands.html" class="hero-poster-link">
-                        <img src="images/postapoc2-hero.jpg" alt="Wastelands Life Drawing Night" class="hero-poster-img">
-                    </a>
-                    <h2 class="hero-event-name" data-en="Wastelands" data-fr="Wastelands">Wastelands</h2>
-                    <p class="hero-event-details">
-                        <span data-en="Saturday, July 18, 2026" data-fr="Samedi 18 juillet 2026">Saturday, July 18, 2026</span> &middot; <span data-en="Cyber Love Garden" data-fr="Cyber Love Garden">Cyber Love Garden</span>
-                    </p>
-                    <a href="https://buytickets.at/wyrdlifedrawing/2231539" target="_blank" rel="noopener" class="btn btn-primary hero-ticket-btn" data-en="Buy Tickets" data-fr="Acheter des billets">Buy Tickets</a>
-                </div>
-            </div>
-
-            <!-- Summer Pass bundle CTA -->
-            <div class="hero-bundle">
-                <a href="https://buytickets.at/wyrdlifedrawing/2231562" target="_blank" rel="noopener" class="hero-bundle-link">
-                    <span class="hero-bundle-label" data-en="WYRD SUMMER PASS" data-fr="PASSEPORT &Eacute;T&Eacute; WYRD">WYRD SUMMER PASS</span>
-                    <span class="hero-bundle-text" data-en="Both events &middot; $30 &middot; Limited to 5" data-fr="Les deux soir&eacute;es &middot; 30$ &middot; Limit&eacute; &agrave; 5">Both events &middot; $30 &middot; Limited to 5</span>
-                    <span class="hero-bundle-arrow">&rarr;</span>
-                </a>
-            </div>
-
-            <!-- Newsletter signup -->
-            <div class="hero-newsletter">
-                <p class="newsletter-label" data-en="Stay in the loop, get early bird ticket notifications" data-fr="Restez inform&eacute;s, recevez les avis de billets de pr&eacute;vente">Stay in the loop, get early bird ticket notifications</p>
-                <form class="newsletter-form" action="https://wyrdlifedrawing.us7.list-manage.com/subscribe/post?u=3040c9b8bb800c9e28cf993cd&amp;id=da9af9ef16&amp;f_id=007280e0f0" method="post" target="_blank">
-                    <input type="email" name="EMAIL" placeholder="your@email.com" class="newsletter-input" aria-label="Email address" required>
-                    <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_3040c9b8bb800c9e28cf993cd_da9af9ef16" tabindex="-1" value=""></div>
-                    <button type="submit" class="btn btn-secondary newsletter-btn" data-en="Notify Me" data-fr="M'avertir">Notify Me</button>
-                </form>
-            </div>
+      </article>
+      <article class="up-card">
+        <div class="up-poster"><span class="up-badge">Jul 18</span><img src="images/postapoc2-hero.jpg" alt="Wastelands"></div>
+        <div class="up-body">
+          <h3 class="up-name">Wastelands</h3>
+          <p class="up-meta" data-en="Saturday, July 18, 2026 · Cyber Love Garden" data-fr="Samedi 18 juillet 2026 · Cyber Love Garden">Saturday, July 18, 2026 · Cyber Love Garden</p>
+          <p class="up-hook" data-en="A return to the wasteland: rust, scavenged cloth and stark beams across five survivor poses." data-fr="Un retour dans les terres désolées : rouille, tissu glané et faisceaux nets à travers cinq poses.">A return to the wasteland: rust, scavenged cloth and stark beams across five survivor poses.</p>
+          <a class="btn btn-primary" href="https://buytickets.at/wyrdlifedrawing/2231539" target="_blank" rel="noopener" data-en="Buy Tickets" data-fr="Billets">Buy Tickets</a>
         </div>
-    </section>
+      </article>
+    </div>
+    <div class="pass">
+      <b>WYRD SUMMER PASS</b><span data-en="Both nights · $30 · limited to 5" data-fr="Les deux soirées · 30$ · limité à 5">Both nights · $30 · limited to 5</span>
+      <a href="https://buytickets.at/wyrdlifedrawing/2231562" target="_blank" rel="noopener" data-en="Get the pass →" data-fr="Obtenir le passeport →">Get the pass →</a>
+    </div>
+  </div>
+</section>
 
-    <!-- About -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title" data-en="About" data-fr="À propos">About</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p data-en="Wyrd Life Drawing transforms the traditional life drawing session into an immersive, otherworldly experience. Each event is a unique themed night — from medieval fantasies to enchanted forest spirits — complete with cinematic lighting, fantastical costumes, and atmospheric music." data-fr="Wyrd Life Drawing transforme la séance traditionnelle de dessin de modèle vivant en une expérience immersive et surnaturelle. Chaque événement est une soirée thématique unique — des fantaisies médiévales aux esprits de la forêt enchantée — avec un éclairage cinématographique, des costumes fantastiques et une musique atmosphérique.">Wyrd Life Drawing transforms the traditional life drawing session into an immersive, otherworldly experience. Each event is a unique themed night — from medieval fantasies to enchanted forest spirits — complete with cinematic lighting, fantastical costumes, and atmospheric music.</p>
-                    <p data-en="We alternate creative direction between our two founders, bringing fresh perspectives and new models to every session. Our models arrive with their own personas and elaborate costumes, making each event a truly one-of-a-kind artistic experience." data-fr="Nous alternons la direction créative entre nos deux fondateurs, apportant des perspectives nouvelles et de nouveaux modèles à chaque séance. Nos modèles arrivent avec leurs propres personnages et costumes élaborés, faisant de chaque événement une expérience artistique véritablement unique.">We alternate creative direction between our two founders, bringing fresh perspectives and new models to every session. Our models arrive with their own personas and elaborate costumes, making each event a truly one-of-a-kind artistic experience.</p>
-                    <p data-en="Whether you're a seasoned artist or picking up a pencil for the first time, Wyrd Life Drawing welcomes all skill levels. Come draw, be inspired, and lose yourself in the atmosphere." data-fr="Que vous soyez un artiste chevronné ou que vous preniez un crayon pour la première fois, Wyrd Life Drawing accueille tous les niveaux. Venez dessiner, vous inspirer et vous perdre dans l'atmosphère.">Whether you're a seasoned artist or picking up a pencil for the first time, Wyrd Life Drawing welcomes all skill levels. Come draw, be inspired, and lose yourself in the atmosphere.</p>
-                </div>
-                <div class="about-features">
-                    <div class="feature">
-                        <span class="feature-icon">&#9728;</span>
-                        <h3 data-en="Cinematic Lighting" data-fr="Éclairage cinématographique">Cinematic Lighting</h3>
-                        <p data-en="Dramatic, moody lighting that transforms the space" data-fr="Un éclairage dramatique qui transforme l'espace">Dramatic, moody lighting that transforms the space</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">&#9733;</span>
-                        <h3 data-en="Themed Nights" data-fr="Soirées thématiques">Themed Nights</h3>
-                        <p data-en="Every event has a unique fantasy or mythological theme" data-fr="Chaque événement a un thème fantastique ou mythologique unique">Every event has a unique fantasy or mythological theme</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">&#9835;</span>
-                        <h3 data-en="Enchanting Music" data-fr="Musique enchantée">Enchanting Music</h3>
-                        <p data-en="Curated soundscapes to match every theme" data-fr="Des ambiances sonores pour chaque thème">Curated soundscapes to match every theme</p>
-                    </div>
-                    <div class="feature">
-                        <span class="feature-icon">&#9998;</span>
-                        <h3 data-en="All Levels Welcome" data-fr="Tous les niveaux">All Levels Welcome</h3>
-                        <p data-en="From first-timers to experienced artists" data-fr="Des débutants aux artistes expérimentés">From first-timers to experienced artists</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- LOOKBOOK -->
+<section class="look" id="atmosphere">
+  <div class="look-head">
+    <span class="eyebrow" data-en="The experience" data-fr="L'expérience">The experience</span>
+    <h2 class="section-title" data-en="Step Into the Atmosphere" data-fr="Entrez dans l'ambiance">Step Into the Atmosphere</h2>
+    <p class="section-lead" data-en="Cinematic light, costumed models, curated sound. Each night is a world you draw your way through." data-fr="Lumière cinématographique, modèles costumés, son soigné. Chaque soirée est un monde que vous traversez en dessinant.">Cinematic light, costumed models, curated sound. Each night is a world you draw your way through.</p>
+  </div>
+  <div class="look-strip">
+    <img src="images/angels-ps-1.jpg" alt="Lost Angels — winged model in blue light" loading="lazy">
+    <img src="images/postapoc-ps-1.jpg" alt="Post Apocalypse — model in red light" loading="lazy">
+    <img src="images/postapoc-ps-2.jpg" alt="Post Apocalypse — wasteland costume study" loading="lazy">
+    <img src="images/medieval-ev-1.jpg" alt="Medieval night — drawing by candlelight" loading="lazy">
+    <img src="images/forest-ev-1.jpg" alt="Forest Nymph — green-lit model" loading="lazy">
+    <img src="images/magical-ev-1.jpg" alt="Magical Girl night — pink atmosphere" loading="lazy">
+    <img src="images/medieval-ev-2.jpg" alt="Medieval night — costumed pose" loading="lazy">
+    <img src="images/forest-ev-3.jpg" alt="Forest Nymph — event atmosphere" loading="lazy">
+    <img src="images/magical-atmo-1.jpg" alt="Magical Girl — lighting setup" loading="lazy">
+    <img src="images/magical-ev-2.jpg" alt="Magical Girl — model pose" loading="lazy">
+    <img src="images/forest-ev-5.jpg" alt="Forest Nymph — artists drawing" loading="lazy">
+  </div>
+</section>
 
-    <!-- Events -->
-    <section class="section events" id="events">
-        <div class="container">
-            <h2 class="section-title" data-en="Events" data-fr="&Eacute;v&eacute;nements">Events</h2>
-            <div class="events-grid">
-                <!-- Upcoming: Gothic Country - June 20 -->
-                <a href="event-goth-country.html" class="event-card">
-                    <div class="event-card-image">
-                        <img src="images/goth-country-hero.jpg" alt="Gothic Country" loading="lazy">
-                        <span class="event-badge" data-en="Upcoming" data-fr="&Agrave; venir">Upcoming</span>
-                    </div>
-                    <div class="event-card-body">
-                        <h3 class="event-name" data-en="Gothic Country" data-fr="Gothic Country">Gothic Country</h3>
-                        <p class="event-meta" data-en="Saturday, June 20, 2026 &middot; Cyber Love Garden" data-fr="Samedi 20 juin 2026 &middot; Cyber Love Garden">Saturday, June 20, 2026 &middot; Cyber Love Garden</p>
-                    </div>
-                </a>
-                <!-- Upcoming: Wastelands - July 18 -->
-                <a href="event-wastelands.html" class="event-card">
-                    <div class="event-card-image">
-                        <img src="images/postapoc2-hero.jpg" alt="Wastelands" loading="lazy">
-                        <span class="event-badge" data-en="Upcoming" data-fr="&Agrave; venir">Upcoming</span>
-                    </div>
-                    <div class="event-card-body">
-                        <h3 class="event-name" data-en="Wastelands" data-fr="Wastelands">Wastelands</h3>
-                        <p class="event-meta" data-en="Saturday, July 18, 2026 &middot; Cyber Love Garden" data-fr="Samedi 18 juillet 2026 &middot; Cyber Love Garden">Saturday, July 18, 2026 &middot; Cyber Love Garden</p>
-                    </div>
-                </a>
-                <!-- Past: Lost Angels - May 9 -->
-                <a href="event-lost-angels.html" class="event-card">
-                    <div class="event-card-image">
-                        <img src="images/angels-poster-1.jpg" alt="Lost Angels" loading="lazy">
-                    </div>
-                    <div class="event-card-body">
-                        <h3 class="event-name" data-en="Lost Angels" data-fr="Lost Angels">Lost Angels</h3>
-                        <p class="event-meta" data-en="Saturday, May 9, 2026 &middot; Cyber Love Garden" data-fr="Samedi 9 mai 2026 &middot; Cyber Love Garden">Saturday, May 9, 2026 &middot; Cyber Love Garden</p>
-                    </div>
-                </a>
-                <!-- Past: Post Apocalypse - Apr 25 -->
-                <a href="event-post-apocalypse.html" class="event-card">
-                    <div class="event-card-image">
-                        <img src="images/postapoc-poster-1.jpg" alt="Post Apocalypse" loading="lazy">
-                    </div>
-                    <div class="event-card-body">
-                        <h3 class="event-name" data-en="Post Apocalypse" data-fr="Post Apocalypse">Post Apocalypse</h3>
-                        <p class="event-meta" data-en="Saturday, April 25, 2026 &middot; Parquette &middot; hannah silverking collaboration" data-fr="Samedi 25 avril 2026 &middot; Parquette &middot; collaboration hannah silverking">Saturday, April 25, 2026 &middot; Parquette &middot; hannah silverking collaboration</p>
-                    </div>
-                </a>
-                <!-- Past: Magical Girl - Feb 6 -->
-                <!-- Alice in Wonderland hidden until photos are ready -->
-                <a href="event-magical-girl.html" class="event-card">
-                    <div class="event-card-image"><img src="images/magical-thumb.jpg" alt="Magical Girl Night" loading="lazy"></div>
-                    <div class="event-card-body">
-                        <h3 class="event-name" data-en="Magical Girl Night" data-fr="Soir&eacute;e Magical Girl">Magical Girl Night</h3>
-                        <p class="event-meta" data-en="Friday, February 6, 2026 &middot; Cyber Love Garden" data-fr="Vendredi 6 f&eacute;vrier 2026 &middot; Cyber Love Garden">Friday, February 6, 2026 &middot; Cyber Love Garden</p>
-                    </div>
-                </a>
-                <!-- Past: Forest Nymph - Dec 7 -->
-                <a href="event-forest-nymph.html" class="event-card">
-                    <div class="event-card-image"><img src="images/forest-thumb.jpg" alt="Forest Nymph" loading="lazy"></div>
-                    <div class="event-card-body">
-                        <h3 class="event-name" data-en="Forest Nymph / F&eacute;e des Bois" data-fr="F&eacute;e des Bois">Forest Nymph / F&eacute;e des Bois</h3>
-                        <p class="event-meta" data-en="Sunday, December 7, 2025 &middot; Cyber Love Garden" data-fr="Dimanche 7 d&eacute;cembre 2025 &middot; Cyber Love Garden">Sunday, December 7, 2025 &middot; Cyber Love Garden</p>
-                    </div>
-                </a>
-                <!-- Past: Medieval - Oct 25 -->
-                <a href="event-medieval.html" class="event-card">
-                    <div class="event-card-image"><img src="images/medieval-1.jpg" alt="Medieval Life Drawing" loading="lazy"></div>
-                    <div class="event-card-body">
-                        <h3 class="event-name" data-en="Medieval Life Drawing" data-fr="Dessin m&eacute;di&eacute;val">Medieval Life Drawing</h3>
-                        <p class="event-meta" data-en="Saturday, October 25, 2025 &middot; Cyber Love Garden" data-fr="Samedi 25 octobre 2025 &middot; Cyber Love Garden">Saturday, October 25, 2025 &middot; Cyber Love Garden</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="wrap">
+    <span class="eyebrow" data-en="About" data-fr="À propos">About</span>
+    <h2 class="section-title" data-en="Not Your Usual Drawing Session" data-fr="Pas une séance ordinaire">Not Your Usual Drawing Session</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-en="Wyrd Life Drawing turns the traditional figure session into an immersive, otherworldly night. Each event is a themed world — medieval, fantastical, post-apocalyptic — built with cinematic lighting, elaborate costumes and atmospheric sound." data-fr="Wyrd Life Drawing transforme la séance traditionnelle en une soirée immersive et surnaturelle. Chaque événement est un monde thématique, bâti avec éclairage cinématographique, costumes élaborés et ambiance sonore.">Wyrd Life Drawing turns the traditional figure session into an immersive, otherworldly night. Each event is a themed world — medieval, fantastical, post-apocalyptic — built with cinematic lighting, elaborate costumes and atmospheric sound.</p>
+        <p data-en="Our models arrive with their own personas and costumes, and creative direction rotates between our founders — so every night is genuinely one of a kind. All skill levels welcome." data-fr="Nos modèles arrivent avec leurs propres personnages et costumes, et la direction créative alterne entre nos fondateurs : chaque soirée est unique. Tous les niveaux sont les bienvenus.">Our models arrive with their own personas and costumes, and creative direction rotates between our founders — so every night is genuinely one of a kind. All skill levels welcome.</p>
+      </div>
+      <div class="feats">
+        <div class="feat"><span class="ic">☀</span><h3 data-en="Cinematic Lighting" data-fr="Éclairage">Cinematic Lighting</h3><p data-en="Dramatic, moody light that sculpts the room." data-fr="Une lumière dramatique qui sculpte l'espace.">Dramatic, moody light that sculpts the room.</p></div>
+        <div class="feat"><span class="ic">★</span><h3 data-en="Themed Worlds" data-fr="Mondes thématiques">Themed Worlds</h3><p data-en="A new fantasy or mythos every event." data-fr="Un nouvel univers à chaque événement.">A new fantasy or mythos every event.</p></div>
+        <div class="feat"><span class="ic">♫</span><h3 data-en="Curated Sound" data-fr="Son soigné">Curated Sound</h3><p data-en="Soundscapes matched to each theme." data-fr="Des ambiances accordées au thème.">Soundscapes matched to each theme.</p></div>
+        <div class="feat"><span class="ic">✎</span><h3 data-en="All Levels" data-fr="Tous niveaux">All Levels</h3><p data-en="From first pencil to seasoned hand." data-fr="Du premier crayon à l'artiste aguerri.">From first pencil to seasoned hand.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Team -->
-    <section class="section team" id="team">
-        <div class="container">
-            <h2 class="section-title" data-en="The Team" data-fr="L'équipe">The Team</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="team-photo"><img src="images/sam-profile.jpg" alt="Sam"></div>
-                    <h3>Sam</h3>
-                    <p class="team-role" data-en="Lighting &middot; Photography &middot; Creative Direction" data-fr="Éclairage &middot; Photographie &middot; Direction créative">Lighting &middot; Photography &middot; Creative Direction</p>
-                    <p class="team-bio" data-en="Sam designs the dramatic lighting that defines the Wyrd atmosphere, captures the magic through photography, and sources unique models from his photography practice — each bringing their own personas and costumes." data-fr="Sam conçoit l'éclairage dramatique qui définit l'atmosphère Wyrd, capture la magie par la photographie et trouve des modèles uniques dans sa pratique photographique — chacun apportant ses propres personnages et costumes.">Sam designs the dramatic lighting that defines the Wyrd atmosphere, captures the magic through photography, and sources unique models from his photography practice — each bringing their own personas and costumes.</p>
-                    <a href="https://www.instagram.com/sam___ab/" class="team-social" target="_blank" rel="noopener">@sam___ab</a>
-                </div>
-                <div class="team-member">
-                    <div class="team-photo"><img src="images/esmee-profile.jpg" alt="Esmee"></div>
-                    <h3>Esmee</h3>
-                    <p class="team-role" data-en="Modeling &middot; Creative Direction &middot; Artistic Vision" data-fr="Modèle &middot; Direction créative &middot; Vision artistique">Modeling &middot; Creative Direction &middot; Artistic Vision</p>
-                    <p class="team-bio" data-en="Esmee brings the fantasy to life as both model and creative director. Her artistic vision shapes the themes, costumes, and the enchanting atmosphere that makes each event unforgettable." data-fr="Esmee donne vie au fantastique en tant que modèle et directrice créative. Sa vision artistique façonne les thèmes, les costumes et l'atmosphère enchantée qui rend chaque événement inoubliable.">Esmee brings the fantasy to life as both model and creative director. Her artistic vision shapes the themes, costumes, and the enchanting atmosphere that makes each event unforgettable.</p>
-                    <a href="https://www.instagram.com/esmee.simone/" class="team-social" target="_blank" rel="noopener">@esmee.simone</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- PAST -->
+<section class="section past" id="past">
+  <div class="wrap">
+    <span class="eyebrow" data-en="The archive" data-fr="Les archives">The archive</span>
+    <h2 class="section-title" data-en="Past Nights" data-fr="Soirées passées">Past Nights</h2>
+    <p class="section-lead" data-en="A growing archive of the worlds we've built." data-fr="Une archive grandissante des mondes que nous avons bâtis.">A growing archive of the worlds we've built.</p>
+    <div class="past-grid">
+      <a class="past-card" href="event-lost-angels.html"><img src="images/angels-poster-1.jpg" alt="Lost Angels poster"><span class="past-cap"><h4>Lost Angels</h4><span>May 9, 2026</span></span></a>
+      <a class="past-card" href="event-post-apocalypse.html"><img src="images/postapoc-poster-1.jpg" alt="Post Apocalypse poster"><span class="past-cap"><h4>Post Apocalypse</h4><span>Apr 25, 2026 · Parquette</span></span></a>
+      <a class="past-card" href="event-magical-girl.html"><img src="images/magical-thumb.jpg" alt="Magical Girl Night"><span class="past-cap"><h4>Magical Girl</h4><span>Feb 6, 2026</span></span></a>
+      <a class="past-card" href="event-forest-nymph.html"><img src="images/forest-thumb.jpg" alt="Forest Nymph"><span class="past-cap"><h4>Forest Nymph</h4><span>Dec 7, 2025</span></span></a>
+      <a class="past-card" href="event-medieval.html"><img src="images/medieval-1.jpg" alt="Medieval Life Drawing"><span class="past-cap"><h4>Medieval</h4><span>Oct 25, 2025</span></span></a>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <h2 class="section-title" data-en="Get in Touch" data-fr="Contactez-nous">Get in Touch</h2>
-            <p class="contact-text" data-en="Want to attend an event, collaborate, or host us at your venue? Reach out!" data-fr="Vous voulez assister à un événement, collaborer ou nous accueillir dans votre lieu? Contactez-nous!">Want to attend an event, collaborate, or host us at your venue? Reach out!</p>
-            <div class="contact-links">
-                <a href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener" class="contact-link">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    <span>Instagram</span>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener" class="contact-link">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.738-.9 10.126-5.864 10.126-11.854z"/></svg>
-                    <span>Facebook</span>
-                </a>
-                <a href="mailto:wyrdlifedrawing@gmail.com" class="contact-link">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <span data-en="Email" data-fr="Courriel">Email</span>
-                </a>
-            </div>
-        </div>
-    </section>
+<!-- TEAM -->
+<section class="section team" id="team">
+  <div class="wrap">
+    <span class="eyebrow" data-en="The team" data-fr="L'équipe">The team</span>
+    <h2 class="section-title">Sam &amp; Esmee</h2>
+    <div class="team-grid">
+      <div class="tm">
+        <div class="tm-photo"><img src="images/sam-profile.jpg" alt="Sam"></div>
+        <h3>Sam</h3>
+        <p class="role" data-en="Lighting · Photography · Creative Direction" data-fr="Éclairage · Photographie · Direction">Lighting · Photography · Creative Direction</p>
+        <p class="bio" data-en="Designs the lighting that defines the Wyrd atmosphere and captures each night through photography." data-fr="Conçoit l'éclairage qui définit l'ambiance Wyrd et capture chaque soirée en photographie.">Designs the lighting that defines the Wyrd atmosphere and captures each night through photography.</p>
+        <a href="https://www.instagram.com/sam___ab/" target="_blank" rel="noopener">@sam___ab</a>
+      </div>
+      <div class="tm">
+        <div class="tm-photo"><img src="images/esmee-profile.jpg" alt="Esmee"></div>
+        <h3>Esmee</h3>
+        <p class="role" data-en="Modeling · Creative Direction · Artistic Vision" data-fr="Modèle · Direction · Vision">Modeling · Creative Direction · Artistic Vision</p>
+        <p class="bio" data-en="Brings the fantasy to life as model and director, shaping themes, costumes and the atmosphere." data-fr="Donne vie au fantastique comme modèle et directrice, façonnant thèmes, costumes et ambiance.">Brings the fantasy to life as model and director, shaping themes, costumes and the atmosphere.</p>
+        <a href="https://www.instagram.com/esmee.simone/" target="_blank" rel="noopener">@esmee.simone</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="footer-logo">WYRD</span>
-                    <p>Montréal, QC</p>
-                </div>
-                <div class="footer-links">
-                    <a href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener">Instagram</a>
-                    <a href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener">Facebook</a>
-                    <a href="https://linktr.ee/WyrdLifeDrawing" target="_blank" rel="noopener">Linktree</a>
-                </div>
-            </div>
-            <p class="footer-copy">&copy; 2025&ndash;2026 Wyrd Life Drawing</p>
-        </div>
-    </footer>
+<!-- NEWSLETTER -->
+<section class="news">
+  <div class="wrap">
+    <h2 data-en="Stay in the loop" data-fr="Restez informés">Stay in the loop</h2>
+    <p data-en="Get early-bird ticket notifications before each night." data-fr="Recevez les avis de prévente avant chaque soirée.">Get early-bird ticket notifications before each night.</p>
+    <div>
+      <!-- EmailOctopus signup form -->
+      <script async src="https://eocampaign1.com/form/19cd1ec0-5eca-11f1-a780-379cb4709c22.js" data-form="19cd1ec0-5eca-11f1-a780-379cb4709c22"></script>
+    </div>
+  </div>
+</section>
 
-    <script src="js/main.js"></script>
-    <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "27afff1e1711494b849a56adbf51b5b1"}'></script>
-    <!-- End Cloudflare Web Analytics -->
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" data-en="Get in touch" data-fr="Contact">Get in touch</span>
+    <h2 class="section-title" data-en="Draw With Us" data-fr="Dessinez avec nous">Draw With Us</h2>
+    <p data-en="Want to attend, collaborate, or host us at your venue? Reach out." data-fr="Envie de participer, collaborer ou nous accueillir? Écrivez-nous.">Want to attend, collaborate, or host us at your venue? Reach out.</p>
+    <div class="contact-links">
+      <a class="clink" href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener">Instagram</a>
+      <a class="clink" href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener">Facebook</a>
+      <a class="clink" href="mailto:wyrdlifedrawing@gmail.com" data-en="Email" data-fr="Courriel">Email</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="fl">WYRD</div>
+    <div class="links">
+      <a href="https://www.instagram.com/wyrdlifedrawing/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61583990797266" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://linktr.ee/WyrdLifeDrawing" target="_blank" rel="noopener">Linktree</a>
+    </div>
+    <p class="cr">© 2025–2026 Wyrd Life Drawing · Montréal, QC</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "27afff1e1711494b849a56adbf51b5b1"}'></script>
+<!-- End Cloudflare Web Analytics -->
 </body>
 </html>
