@@ -65,6 +65,32 @@
         });
     }
 
+    // ── Past Nights: choose a column count that leaves the fewest orphan cards ──
+    var pastGrid = document.querySelector('.past-grid');
+    if (pastGrid) {
+        var layoutPast = function () {
+            var n = pastGrid.children.length;
+            if (!n) return;
+            var gap = 18, minCard = 240;
+            var maxCols = Math.max(1, Math.min(4, Math.floor((pastGrid.clientWidth + gap) / (minCard + gap))));
+            var minCols = Math.min(2, maxCols); // never collapse to a single-file column on wider screens
+            var best = minCols, bestScore = Infinity;
+            for (var c = minCols; c <= maxCols; c++) {
+                var rem = n % c;
+                var emptyLast = rem === 0 ? 0 : (c - rem); // blank cells in the last row
+                var score = emptyLast * 10 - c;            // no orphans first, then fuller last row, then denser
+                if (score < bestScore) { bestScore = score; best = c; }
+            }
+            pastGrid.style.gridTemplateColumns = 'repeat(' + best + ', 1fr)';
+        };
+        layoutPast();
+        var pastTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(pastTimer);
+            pastTimer = setTimeout(layoutPast, 150);
+        });
+    }
+
     // ── Language Toggle (persists across pages, auto-detects FR browsers) ──
     var langToggle = document.getElementById('langToggle');
     var LANG_KEY = 'wyrd-lang';
