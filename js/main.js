@@ -20,6 +20,51 @@
         }
     }
 
+    // ── Atmosphere marquee: clone the track for a seamless auto-scroll loop ──
+    var lookTrack = document.querySelector('.look-track');
+    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (lookTrack && !prefersReduced) {
+        Array.prototype.slice.call(lookTrack.children).forEach(function (node) {
+            var clone = node.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            clone.tabIndex = -1;
+            lookTrack.appendChild(clone);
+        });
+    }
+
+    // ── Atmosphere lightbox: click a photo to view it large ──
+    var lookStrip = document.querySelector('.look-strip');
+    if (lookStrip) {
+        var lb = document.createElement('div');
+        lb.className = 'wlb';
+        lb.setAttribute('role', 'dialog');
+        lb.setAttribute('aria-modal', 'true');
+        lb.innerHTML = '<button class="wlb-close" aria-label="Close">×</button><img alt="">';
+        document.body.appendChild(lb);
+        var lbImg = lb.querySelector('img');
+        var openLightbox = function (src, alt) {
+            lbImg.src = src;
+            lbImg.alt = alt || '';
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        };
+        var closeLightbox = function () {
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+        };
+        lookStrip.addEventListener('click', function (e) {
+            var img = e.target && e.target.closest ? e.target.closest('img') : null;
+            if (!img || !lookStrip.contains(img)) return;
+            openLightbox(img.getAttribute('data-full') || img.currentSrc || img.src, img.alt);
+        });
+        lb.addEventListener('click', function (e) {
+            if (e.target === lb || (e.target.classList && e.target.classList.contains('wlb-close'))) closeLightbox();
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
+        });
+    }
+
     // ── Language Toggle (persists across pages, auto-detects FR browsers) ──
     var langToggle = document.getElementById('langToggle');
     var LANG_KEY = 'wyrd-lang';
