@@ -6,10 +6,18 @@
     'use strict';
 
     // ── Team order shuffle (50/50) ──
-    // Randomly swap Sam and Esmee on each page load
+    // Randomly swap Sam and Esmee on each page load, then sync the heading
+    // to match whichever card ended up first (so title and cards never disagree).
     var teamGrid = document.querySelector('.team-grid');
-    if (teamGrid && teamGrid.children.length === 2 && Math.random() < 0.5) {
-        teamGrid.appendChild(teamGrid.firstElementChild);
+    if (teamGrid && teamGrid.children.length === 2) {
+        if (Math.random() < 0.5) {
+            teamGrid.appendChild(teamGrid.firstElementChild);
+        }
+        var teamTitle = document.querySelector('#team .section-title');
+        var teamNames = teamGrid.querySelectorAll('.tm h3');
+        if (teamTitle && teamNames.length === 2) {
+            teamTitle.textContent = teamNames[0].textContent.trim() + ' & ' + teamNames[1].textContent.trim();
+        }
     }
 
     // ── Language Toggle (persists across pages, auto-detects FR browsers) ──
