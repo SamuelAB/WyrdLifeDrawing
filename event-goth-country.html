@@ -261,6 +261,31 @@
             margin-bottom: 0.6rem;
             text-align: center;
         }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 4px;
+            background: #1a1a1a;
+        }
+        .gallery-item img {
+            width: 100%;
+            aspect-ratio: 2 / 3;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.03); }
+        @media (max-width: 900px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 550px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
         .event-section-subtitle {
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
@@ -473,6 +498,23 @@
         <div class="event-intro">
             <p data-en="A life drawing night scenographed like a haunted saloon. Dust, lace, lantern-glow, and a soundtrack of murder ballads and slow shuffles." data-fr="Une s&eacute;ance de dessin de mod&egrave;le vivant sc&eacute;nographi&eacute;e comme un saloon hant&eacute;. Poussi&egrave;re, dentelle, lueur de lanterne, et une trame sonore de ballades sombres et de shuffles lents.">A life drawing night scenographed like a haunted saloon. Dust, lace, lantern-glow, and a soundtrack of murder ballads and slow shuffles.</p>
             <p data-en="A cowboy of some sort holds the room across five poses. Lighting alternates between amber gloom and stark silhouette, asking you to draw memory and feeling as much as form. All skill levels welcome." data-fr="Un cowboy d'un genre ou d'un autre tient la sc&egrave;ne &agrave; travers cinq poses. La lumi&egrave;re alterne entre p&eacute;nombre dor&eacute;e et silhouette nette, vous invitant &agrave; dessiner la m&eacute;moire et le ressenti autant que la forme. Tous les niveaux sont les bienvenus.">A cowboy of some sort holds the room across five poses. Lighting alternates between amber gloom and stark silhouette, asking you to draw memory and feeling as much as form. All skill levels welcome.</p>
+        </div>
+    </section>
+
+    <!-- The Night — event gallery -->
+    <section class="event-section">
+        <h2 class="event-section-title" data-en="The Night" data-fr="La soir&eacute;e">The Night</h2>
+        <p class="event-section-subtitle" data-en="The model, the amber-lit saloon, and the drawings it drew out." data-fr="Le mod&egrave;le, le saloon &agrave; la lueur d'ambre, et les dessins qui en sont n&eacute;s.">The model, the amber-lit saloon, and the drawings it drew out.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/gothcountry-ev-1.jpg" alt="Gothic Country, cowgirl model in red light with revolver" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gothcountry-ev-2.jpg" alt="Gothic Country, model aiming a revolver" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gothcountry-ev-3.jpg" alt="Gothic Country, model in blue light in full costume" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gothcountry-ev-4.jpg" alt="Gothic Country, model on a ladder holding a knife" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gothcountry-ev-5.jpg" alt="Gothic Country, model reclining in leather chaps" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gothcountry-ev-6.jpg" alt="Gothic Country, model seated by a chair in blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gothcountry-ev-7.jpg" alt="Gothic Country, the venue in amber and blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gothcountry-ev-8.jpg" alt="Gothic Country, life drawing in progress" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/gothcountry-ev-9.jpg" alt="Gothic Country, an attendee's ink drawing of the model" loading="lazy"></div>
         </div>
     </section>
 
@@ -760,7 +802,7 @@
             lightboxImg.src = '';
         }
 
-        document.querySelectorAll('.mood-block-pose img').forEach(function(img) {
+        document.querySelectorAll('.mood-block-pose img, .gallery-item img').forEach(function(img) {
             img.addEventListener('click', function() {
                 openLightbox(img.src, img.alt);
             });
