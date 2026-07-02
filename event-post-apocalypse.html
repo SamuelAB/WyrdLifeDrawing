@@ -136,11 +136,13 @@
             margin: 0 auto;
         }
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 1rem;
         }
         .gallery-item {
+            flex: 0 1 calc(33.333% - 0.7rem);
             overflow: hidden;
             border-radius: 4px;
             background: #1a1a1a;
@@ -152,11 +154,34 @@
             transition: transform 0.4s ease;
         }
         .gallery-item:hover img { transform: scale(1.03); }
+        .gallery-grid.drawings {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+        .gallery-grid.drawings .gallery-item {
+            flex-basis: calc(50% - 0.5rem);
+        }
+        .gallery-grid.drawings .gallery-item img {
+            height: 300px;
+            object-fit: contain;
+        }
+        .event-section-subtitle {
+            max-width: 640px;
+            margin: -1.2rem auto 2rem;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.62);
+        }
         @media (max-width: 900px) {
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item { flex-basis: calc(50% - 0.5rem); }
         }
         @media (max-width: 550px) {
-            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item,
+            .gallery-grid.drawings .gallery-item { flex-basis: 100%; }
+            .gallery-grid.drawings .gallery-item img { height: auto; }
             .event-hero { height: 50vh; min-height: 300px; }
         }
     </style>
@@ -210,23 +235,41 @@
         </div>
     </section>
 
-    <!-- The Shoot -->
+    <!-- The Night -->
     <section class="event-section">
-        <h2 class="event-section-title" data-en="The Shoot" data-fr="La s&eacute;ance">The Shoot</h2>
+        <h2 class="event-section-title" data-en="The Night" data-fr="La soir&eacute;e">The Night</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/postapoc-night-1.jpg" alt="Post Apocalypse, model seated in a glowing gown under red backlight" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-night-2.jpg" alt="Post Apocalypse, model dancing in a patchwork gown in teal and magenta light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-night-3.jpg" alt="Post Apocalypse, model seated on white fabric with arms raised in magenta light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-night-4.jpg" alt="Post Apocalypse, model seated in a glowing gown in magenta light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-night-5.jpg" alt="Post Apocalypse, model reclining with red cords in red light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-night-6.jpg" alt="Post Apocalypse, model reclining in red light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-night-7.jpg" alt="Post Apocalypse, model reclining with cables in blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-night-8.jpg" alt="Post Apocalypse, model reclining in blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-night-9.jpg" alt="Post Apocalypse, artists drawing the model in the room" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- The Drawings -->
+    <section class="event-section">
+        <h2 class="event-section-title" data-en="The Drawings" data-fr="Les dessins">The Drawings</h2>
+        <div class="gallery-grid drawings">
+            <div class="gallery-item"><img src="images/postapoc-draw-1.jpg" alt="Post Apocalypse, a colourful mixed-media drawing of the reclining model" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-draw-2.jpg" alt="Post Apocalypse, a painted study of the model" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-draw-3.jpg" alt="Post Apocalypse, a red and blue ink drawing of the model" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/postapoc-draw-4.jpg" alt="Post Apocalypse, a contour line drawing of the standing model" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- The Photoshoot -->
+    <section class="event-section">
+        <h2 class="event-section-title" data-en="The Photoshoot" data-fr="La s&eacute;ance photo">The Photoshoot</h2>
+        <p class="event-section-subtitle" data-en="We usually do a photoshoot before each event to create the images and settle the clothes, narrative, poses, atmosphere and music." data-fr="Nous faisons g&eacute;n&eacute;ralement une s&eacute;ance photo avant chaque &eacute;v&eacute;nement pour cr&eacute;er les images et d&eacute;finir les costumes, la narration, les poses, l'ambiance et la musique.">We usually do a photoshoot before each event to create the images and settle the clothes, narrative, poses, atmosphere and music.</p>
         <div class="gallery-grid">
             <div class="gallery-item"><img src="images/postapoc-ps-1.jpg" alt="Post Apocalypse photoshoot, costume by hannah silverking" loading="lazy"></div>
             <div class="gallery-item"><img src="images/postapoc-ps-2.jpg" alt="Post Apocalypse photoshoot, costume by hannah silverking" loading="lazy"></div>
             <div class="gallery-item"><img src="images/postapoc-ps-3.jpg" alt="Post Apocalypse photoshoot, costume by hannah silverking" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/postapoc-ps-4.jpg" alt="Post Apocalypse photoshoot, costume by hannah silverking" loading="lazy"></div>
-        </div>
-    </section>
-
-    <!-- At the Event -->
-    <section class="event-section">
-        <h2 class="event-section-title" data-en="At the Event" data-fr="&Agrave; l'&eacute;v&eacute;nement">At the Event</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/postapoc-ev-1.jpg" alt="Post Apocalypse, the room drawing" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/postapoc-ev-2.jpg" alt="Post Apocalypse, model under cinematic light" loading="lazy"></div>
         </div>
     </section>
 
