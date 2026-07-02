@@ -153,11 +153,24 @@
             transition: transform 0.4s ease;
         }
         .gallery-item:hover img { transform: scale(1.03); }
+        .gallery-grid.drawings {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 920px;
+            margin: 0 auto;
+        }
+        .event-past-tag {
+            margin-top: 1.25rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+        }
         @media (max-width: 900px) {
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 550px) {
-            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-grid,
+            .gallery-grid.drawings { grid-template-columns: 1fr; }
             .event-hero { height: 50vh; min-height: 300px; }
         }
     </style>
@@ -192,9 +205,7 @@
                 <span>6:00 PM &ndash; 9:00 PM</span><br>
                 <span>Cyber Love Garden Studio</span>
             </p>
-            <div class="event-ticket-cta">
-                <a href="https://buytickets.at/wyrdlifedrawing/2162531" target="_blank" rel="noopener" class="btn btn-primary" data-en="Buy Tickets" data-fr="Acheter des billets">Buy Tickets</a>
-            </div>
+            <p class="event-past-tag" data-en="Past night &middot; May 2026" data-fr="Soir&eacute;e pass&eacute;e &middot; mai 2026">Past night &middot; May 2026</p>
         </div>
     </section>
 
@@ -211,23 +222,33 @@
         </div>
     </section>
 
-    <!-- The Shoot -->
+    <!-- The Night -->
     <section class="event-section">
-        <h2 class="event-section-title" data-en="The Shoot" data-fr="La s&eacute;ance">The Shoot</h2>
+        <h2 class="event-section-title" data-en="The Night" data-fr="La soir&eacute;e">The Night</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/angels-ps-1.jpg" alt="Lost Angels, winged model in blue light" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/angels-ps-3.jpg" alt="Lost Angels, model in blue light" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/angels-ps-2.jpg" alt="Lost Angels, winged model in blue light" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/angels-ps-4.jpg" alt="Lost Angels, model in blue light" loading="lazy"></div>
-            <div class="gallery-item"><img src="images/angels-ps-5.jpg" alt="Lost Angels, model in red light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-1.jpg" alt="Lost Angels, two winged angels in red and blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-2.jpg" alt="Lost Angels, masked angel with wings in purple light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-3.jpg" alt="Lost Angels, angel in a white dress in blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-4.jpg" alt="Lost Angels, seated angel in red and blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-5.jpg" alt="Lost Angels, two angels seated in blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-6.jpg" alt="Lost Angels, angel reclining in red light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-7.jpg" alt="Lost Angels, winged angel standing over a seated angel in blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-8.jpg" alt="Lost Angels, seated angel in red and blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-9.jpg" alt="Lost Angels, angels embracing in red light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-10.jpg" alt="Lost Angels, two angels in blue and red light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-11.jpg" alt="Lost Angels, two angels leaning together in red and blue light" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-night-12.jpg" alt="Lost Angels, two angels reclining in blue light" loading="lazy"></div>
         </div>
     </section>
 
-    <!-- At the Event -->
+    <!-- The Drawings -->
     <section class="event-section">
-        <h2 class="event-section-title" data-en="At the Event" data-fr="&Agrave; l'&eacute;v&eacute;nement">At the Event</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/angels-ev-1.jpg" alt="Lost Angels, at the event" loading="lazy"></div>
+        <h2 class="event-section-title" data-en="The Drawings" data-fr="Les dessins">The Drawings</h2>
+        <div class="gallery-grid drawings">
+            <div class="gallery-item"><img src="images/angels-draw-1.jpg" alt="Lost Angels, a painted portrait of the angel" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-draw-2.jpg" alt="Lost Angels, a painted study of a reclining angel" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-draw-3.jpg" alt="Lost Angels, a colourful mixed-media drawing of the angel" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/angels-draw-4.jpg" alt="Lost Angels, a line drawing of the two angels" loading="lazy"></div>
         </div>
     </section>
 
