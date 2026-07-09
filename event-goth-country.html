@@ -34,12 +34,6 @@
         }
       },
       "image": "https://wyrdlifedrawing.com/images/goth-country-hero.jpg",
-      "offers": {
-        "@type": "Offer",
-        "url": "https://buytickets.at/wyrdlifedrawing/2220183",
-        "priceCurrency": "CAD",
-        "availability": "https://schema.org/InStock"
-      },
       "organizer": {
         "@type": "Organization",
         "name": "Wyrd Life Drawing",
@@ -130,6 +124,13 @@
             color: rgba(255,255,255,0.85);
             font-size: 1.15rem;
             line-height: 1.6;
+        }
+        .event-past-tag {
+            margin-top: 1.4rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
         }
         .event-hero-ctas {
             margin-top: 1.6rem;
@@ -493,8 +494,8 @@
                 <span data-en="6:00 PM to 9:00 PM" data-fr="18 h &agrave; 21 h">6:00 PM to 9:00 PM</span><br>
                 <span>Cyber Love Garden &middot; Plateau Mont-Royal</span>
             </p>
+            <p class="event-past-tag" data-en="Past night &middot; June 2026" data-fr="Soir&eacute;e pass&eacute;e &middot; juin 2026">Past night &middot; June 2026</p>
             <div class="event-hero-ctas">
-                <a href="https://buytickets.at/wyrdlifedrawing/2220183" target="_blank" rel="noopener" class="btn btn-primary" data-en="Buy Tickets" data-fr="Acheter des billets">Buy Tickets</a>
                 <a href="006gothcountry.html" class="btn-timer" data-en="Pose Timer" data-fr="Minuterie de pose">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="13" r="8"></circle>
@@ -807,7 +808,7 @@
         <img src="" alt="" id="lightboxImg">
     </div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=20260701d"></script>
     <script>
     (function() {
         var lightbox = document.getElementById('lightbox');
