@@ -126,7 +126,20 @@ a{color:inherit;text-decoration:none}
 .pass b{font-family:var(--display);letter-spacing:.14em;background:linear-gradient(135deg,#d9a766,#b87fd9);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .pass span{color:#e7e7e7}
 .pass a{color:#b87fd9;font-weight:600;letter-spacing:.08em}
+/* Next theme not announced yet: the signup IS the action */
+.soon{max-width:560px;margin:44px auto 0;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:34px 28px;text-align:center}
+.soon h3{font-family:var(--display);font-size:1.3rem;color:var(--green);letter-spacing:.03em;margin-bottom:8px}
+.soon p{color:var(--muted);font-weight:300;font-size:.95rem;max-width:400px;margin:0 auto 22px}
+.soon-form{max-width:420px;margin:0 auto;min-height:96px}
+/* EmailOctopus injects its own purple theme; pull it onto the Wyrd palette */
+#newsletter .soon-form .emailoctopus-form input[type=email]{background:#111!important;border:1px solid rgba(255,255,255,.18)!important;color:var(--text)!important;border-radius:6px!important;padding:13px 16px!important;font-family:var(--body)!important}
+#newsletter .soon-form .emailoctopus-form input[type=email]::placeholder{color:var(--muted)!important}
+#newsletter .soon-form .emailoctopus-form input[type=email]:focus{border-color:var(--green)!important;box-shadow:0 0 0 3px var(--green-glow)!important;outline:none!important}
+#newsletter .soon-form .emailoctopus-form .btn-primary{background:var(--green)!important;border-color:var(--green)!important;color:#0a0a0a!important;font-family:var(--body)!important;font-weight:700!important;font-size:.82rem!important;letter-spacing:.12em!important;text-transform:uppercase!important;border-radius:6px!important;padding:14px 30px!important;transition:.25s!important}
+#newsletter .soon-form .emailoctopus-form .btn-primary:hover{box-shadow:0 0 28px var(--green-glow)!important;transform:translateY(-2px)}
+#newsletter .soon-form .emailoctopus-form p,#newsletter .soon-form .emailoctopus-form label{color:var(--muted)!important}
 @media(max-width:760px){.up-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.soon{padding:28px 20px}}
 
 /* LOOKBOOK — atmosphere is the product */
 .look{background:var(--bg-1);padding:90px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -213,6 +226,7 @@ a{color:inherit;text-decoration:none}
     <li><a href="#about" data-en="About" data-fr="À propos">About</a></li>
     <li><a href="#past" data-en="Past Nights" data-fr="Soirées passées">Past Nights</a></li>
     <li><a href="#contact" data-en="Contact" data-fr="Contact">Contact</a></li>
+    <li><a href="#newsletter" data-en="Newsletter" data-fr="Infolettre">Newsletter</a></li>
   </ul>
   <div class="nav-right">
     <button class="lang" id="langToggle" aria-label="Toggle language">FR</button>
@@ -238,25 +252,19 @@ a{color:inherit;text-decoration:none}
   <div class="scrolldown"></div>
 </header>
 
-<!-- UPCOMING: prominent, ticket-forward -->
+<!-- UPCOMING: next theme not announced yet, the signup is the action -->
 <section class="section upcoming" id="upcoming">
   <div class="wrap">
     <span class="eyebrow" data-en="Next up" data-fr="À venir">Next up</span>
-    <h2 class="section-title" data-en="Upcoming Night" data-fr="Prochaine soirée">Upcoming Night</h2>
-    <p class="section-lead" data-en="Our next themed night steps into the French Revolution. Tickets are on sale now, and Early Bird is limited." data-fr="Notre prochaine soirée thématique plonge dans la Révolution française. Les billets sont en vente, et le tarif lève-tôt est limité.">Our next themed night steps into the French Revolution. Tickets are on sale now, and Early Bird is limited.</p>
-    <div class="up-grid">
-      <article class="up-card">
-        <div class="up-poster">
-          <img src="images/frev-shoot-1.jpg" alt="French Revolution Life Drawing Night" loading="lazy">
-          <span class="up-badge" data-en="Aug 29" data-fr="29 août">Aug 29</span>
-        </div>
-        <div class="up-body">
-          <h3 class="up-name"><a class="up-titlelink" href="event-french-revolution.html" data-en="French Revolution" data-fr="Révolution française">French Revolution</a></h3>
-          <p class="up-meta" data-en="Saturday, August 29, 2026 · 6:00 PM to 9:30 PM · Cyber Love Garden" data-fr="Samedi 29 août 2026 · 18 h à 21 h 30 · Cyber Love Garden">Saturday, August 29, 2026 · 6:00 PM to 9:30 PM · Cyber Love Garden</p>
-          <p class="up-hook" data-en="Liberty, muslin and candlelight. A costumed model, tricolour sashes, and the warm chiaroscuro of a history painting." data-fr="Liberté, mousseline et lumière de bougie. Une modèle costumée, des écharpes tricolores et le clair-obscur chaleureux d'une peinture d'histoire.">Liberty, muslin and candlelight. A costumed model, tricolour sashes, and the warm chiaroscuro of a history painting.</p>
-          <a class="btn btn-primary" href="https://buytickets.at/wyrdlifedrawing/2330581" target="_blank" rel="noopener" data-en="Buy Tickets" data-fr="Acheter des billets">Buy Tickets</a>
-        </div>
-      </article>
+    <h2 class="section-title" data-en="Next Theme Coming Soon" data-fr="Prochain thème bientôt">Next Theme Coming Soon</h2>
+    <p class="section-lead" data-en="Our next themed night is in the works, and the date is not public yet." data-fr="Notre prochaine soirée thématique est en préparation, et la date n'est pas encore publique.">Our next themed night is in the works, and the date is not public yet.</p>
+    <div class="soon" id="newsletter">
+      <h3 data-en="Join the newsletter" data-fr="Rejoignez l'infolettre">Join the newsletter</h3>
+      <p data-en="Next theme announced soon. Newsletter subscribers hear first, before tickets go on sale." data-fr="Prochain thème annoncé bientôt. Les abonnés à l'infolettre sont informés en premier, avant la mise en vente des billets.">Next theme announced soon. Newsletter subscribers hear first, before tickets go on sale.</p>
+      <div class="soon-form">
+        <!-- EmailOctopus signup form -->
+        <script async src="https://eocampaign1.com/form/19cd1ec0-5eca-11f1-a780-379cb4709c22.js" data-form="19cd1ec0-5eca-11f1-a780-379cb4709c22"></script>
+      </div>
     </div>
   </div>
 </section>
@@ -318,6 +326,7 @@ a{color:inherit;text-decoration:none}
     <h2 class="section-title" data-en="Past Nights" data-fr="Soirées passées">Past Nights</h2>
     <p class="section-lead" data-en="A growing archive of the worlds we've built." data-fr="Une archive grandissante des mondes que nous avons bâtis.">A growing archive of the worlds we've built.</p>
     <div class="past-grid">
+      <a class="past-card" href="event-french-revolution.html"><img src="images/frev-shoot-1.jpg" alt="French Revolution Life Drawing Night"><span class="past-cap"><h4>French Revolution</h4><span>Aug 29, 2026 · Cyber Love Garden</span></span></a>
       <a class="past-card" href="event-goth-country.html"><img src="images/goth-country-hero.jpg" alt="Gothic Country poster"><span class="past-cap"><h4>Gothic Country</h4><span>June 19, 2026</span></span></a>
       <a class="past-card" href="event-lost-angels.html"><img src="images/angels-poster-1.jpg" alt="Lost Angels poster"><span class="past-cap"><h4>Lost Angels</h4><span>May 9, 2026</span></span></a>
       <a class="past-card" href="event-post-apocalypse.html"><img src="images/postapoc-poster-1.jpg" alt="Post Apocalypse poster"><span class="past-cap"><h4>Post Apocalypse</h4><span>Apr 25, 2026 · Parquette</span></span></a>
@@ -352,15 +361,14 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- NEWSLETTER -->
+<!-- NEWSLETTER band: the signup form itself lives once, in #newsletter up in the Next Up section.
+     A second EmailOctopus embed on the same page steals the first form's reCAPTCHA, so this band links up to it. -->
 <section class="news">
   <div class="wrap">
+    <span class="eyebrow" data-en="Newsletter" data-fr="Infolettre">Newsletter</span>
     <h2 data-en="Stay in the loop" data-fr="Restez informés">Stay in the loop</h2>
     <p data-en="Get early-bird ticket notifications before each night." data-fr="Recevez les avis de prévente avant chaque soirée.">Get early-bird ticket notifications before each night.</p>
-    <div>
-      <!-- EmailOctopus signup form -->
-      <script async src="https://eocampaign1.com/form/19cd1ec0-5eca-11f1-a780-379cb4709c22.js" data-form="19cd1ec0-5eca-11f1-a780-379cb4709c22"></script>
-    </div>
+    <a class="btn btn-primary" href="#newsletter" data-en="Sign up" data-fr="S'inscrire">Sign up</a>
   </div>
 </section>
 
@@ -391,6 +399,32 @@ a{color:inherit;text-decoration:none}
 </footer>
 
 <script src="js/main.js?v=20260701d"></script>
+<script>
+/* Arrive-with-a-hash fix. The fade-in transform main.js puts on every .section
+   creates a containing block and cancels Chrome's own scroll-to-fragment, so a
+   visitor landing on index.html#newsletter (or #past, #contact) stayed at the top.
+   Re-apply the scroll once the page has settled, and reveal the target section. */
+(function () {
+  var hash = location.hash;
+  if (!hash || hash.length < 2) return;
+  function go() {
+    var el;
+    try { el = document.querySelector(hash); } catch (e) { return; }
+    if (!el) return;
+    var sec = el.closest ? el.closest('.section') : null;
+    if (sec) { sec.style.opacity = '1'; sec.style.transform = 'none'; }
+    var y = el.getBoundingClientRect().top + (window.pageYOffset || 0) - 76;
+    // Temporarily defeat html{scroll-behavior:smooth} so this is one instant jump.
+    // Left smooth, it animates the whole way down and any input cancels it midway.
+    var root = document.documentElement;
+    var prev = root.style.scrollBehavior;
+    root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y > 0 ? y : 0);
+    root.style.scrollBehavior = prev;
+  }
+  window.addEventListener('load', function () { go(); setTimeout(go, 350); });
+})();
+</script>
 <!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "27afff1e1711494b849a56adbf51b5b1"}'></script>
 <!-- End Cloudflare Web Analytics -->
