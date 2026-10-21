@@ -194,6 +194,26 @@
             .gallery-item { flex-basis: 100%; }
             .event-hero { height: 54vh; min-height: 340px; }
         }
+        .event-ticket-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-timer {
+            background: transparent;
+            color: #d9a766;
+            border: 1px solid rgba(217, 167, 102, 0.6);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            padding: 14px 28px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .btn-timer:hover {
+            background: rgba(217, 167, 102, 0.15);
+            border-color: rgba(217, 167, 102, 0.9);
+        }
+        .btn-timer svg { width: 18px; height: 18px; flex-shrink: 0; }
     </style>
 </head>
 <body>
@@ -230,6 +250,14 @@
             </p>
             <div class="event-ticket-cta">
                 <a href="https://buytickets.at/wyrdlifedrawing/2435058" target="_blank" rel="noopener" class="btn btn-primary" data-en="Buy Tickets" data-fr="Acheter des billets">Buy Tickets</a>
+                <a href="009cabaret.html" class="btn-timer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="13" r="8"></circle>
+                        <path d="M12 9v4l2 2"></path>
+                        <path d="M9 2h6"></path>
+                    </svg>
+                    <span data-en="Pose Timer" data-fr="Minuterie de pose">Pose Timer</span>
+                </a>
             </div>
         </div>
     </section>
